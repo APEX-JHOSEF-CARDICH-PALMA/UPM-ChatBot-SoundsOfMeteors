@@ -5,6 +5,9 @@
 - good morning
 - good evening
 - hey there
+- hola 
+- Buenas 
+- que tal
 
 ## intent:goodbye
 - bye
