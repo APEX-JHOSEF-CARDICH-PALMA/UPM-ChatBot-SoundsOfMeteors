@@ -57,3 +57,16 @@
 - are you a human?
 - am I talking to a bot?
 - am I talking to a human?
+
+## intent:bot_clasificar
+- clasificar
+- deseo clasificar
+
+##intent:bot_entrenar
+- quiero entrenar
+- entrenar 
+- deseo practicar
+- entrenamiento
+- deseo entrenarme 
+- quiero practicar
+
