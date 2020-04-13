@@ -62,7 +62,7 @@
 - clasificar
 - deseo clasificar
 
-##intent:bot_entrenar
+## intent:bot_entrenar
 - quiero entrenar
 - entrenar 
 - deseo practicar

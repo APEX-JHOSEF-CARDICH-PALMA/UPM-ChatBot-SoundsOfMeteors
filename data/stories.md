@@ -29,3 +29,16 @@
 ## bot challenge
 * bot_challenge
   - utter_iamabot
+
+## entrenamiento
+* bot_entrenar
+  - utter_entrenar
+  - utter_msg_audio
+  - utter_desc_audio
+
+
+## clasificacion
+* bot_clasificar
+  - utter_clasificar
+  - utter_msg_audio
+  - utter_otro_nivel

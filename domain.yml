@@ -6,6 +6,8 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - bot_clasificar
+  - bot_entrenar
 
 responses:
   utter_greet:
@@ -26,6 +28,22 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_entrenar:
+  - text: "Perfecto! Vamos a entrenar"
+
+  utter_clasificar:
+  - text: "Muy bien! vamos a clasificar "
+
+  utter_msg_audio:
+  - text: "Escucha el siguiente audio"
+
+  utter_desc_audio:
+  - text: "El audios que acabas de escuchar es de un meteorito en concreto"
+
+  utter_otro_nivel:
+  - text: "Sigamos con el siguiente nivel !"
+
 
 session_config:
   session_expiration_time: 60
