@@ -8,10 +8,14 @@ intents:
   - bot_challenge
   - bot_clasificar
   - bot_entrenar
+  - hola_mundo
+
+actions:
+  - action_hola_mundo
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hola! que tal te va todo?"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -31,6 +35,7 @@ responses:
 
   utter_entrenar:
   - text: "Perfecto! Vamos a entrenar"
+  - text: "Vas a escuchar los siguientes audios entonces podras aprender de esa manera"
 
   utter_clasificar:
   - text: "Muy bien! vamos a clasificar "
