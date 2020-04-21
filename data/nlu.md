@@ -8,12 +8,15 @@
 - hola 
 - Buenas 
 - que tal
-
+- Hey, estas ahi ?
 ## intent:goodbye
 - bye
 - goodbye
 - see you around
 - see you later
+- parar
+- vamos a descansar
+
 
 ## intent:affirm
 - yes
@@ -21,6 +24,11 @@
 - of course
 - that sounds good
 - correct
+- si 
+- si quiero eso
+- vale 
+- de acuerdo
+- muy bien 
 
 ## intent:deny
 - no
@@ -39,6 +47,12 @@
 - I am feeling very good
 - I am great
 - I'm good
+- Bien 
+- feliz
+- normal
+- cool
+- contento
+- fine
 
 ## intent:mood_unhappy
 - sad
@@ -51,6 +65,10 @@
 - not very good
 - extremely sad
 - so sad
+- mal 
+- triste 
+- me siento solo
+- desaninmado
 
 ## intent:bot_challenge
 - are you a bot?
@@ -70,5 +88,13 @@
 - deseo entrenarme 
 - quiero practicar
 
+ 
+
+## intent:bot_opciones
+- dime las opciones
+- reiniciar
+- inicio
+- empezar de nuevo
+
 ## intent:hola_mundo
-- hola mundo 
+- hola mundo

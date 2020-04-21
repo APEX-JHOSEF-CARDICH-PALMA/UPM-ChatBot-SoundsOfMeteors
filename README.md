@@ -13,3 +13,6 @@
  - Pycharm > preferencias .. 
  - Instalar paquete rasa (Esto reinstalara las dependencias que estan dentro de venv y asi instalara las que faltan tambien.
  - Una vez istalado podemos empezar a interactuar via teclado con nuestro bot ejecutando en la terminal: rasa shell
+ - En el caso de que tengamos servicios, entonces tendremos que arrancar el servidor de servicios de rasa: rasa run services...
+   en ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si reconoce alguno en la conversacion con el usuario
+

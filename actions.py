@@ -23,3 +23,53 @@ class ActionHelloWorld(Action):
         dispatcher.utter_message(text="Hello World!")
 
         return []
+
+
+class ActionTraining(Action):
+
+    def name(self) -> Text:
+        return "action_training"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text=" Hola, ya estamos entrenando  !")
+
+        ## En este caso deberiamos saber como dirigir el flujo segun nuestro codigo aqui
+
+        ## y hacer preguntas al usuario par apoder ir
+
+        return []
+
+
+class ActionClassifying(Action):
+
+    def name(self) -> Text:
+        return "action_classifying"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Ya estamos clasificando ....")
+
+        return []
+
+##########################################################
+# Available actions for the aplication
+##########################################################
+# 1 - Mensaje de bienvenida
+
+# 2 - A little explanation about how the classification works-
+#   - Explain the two options: trainnig and classification part itself
+
+# 3 - Training :
+#   - Explain the five types of metheor's sounds
+
+# 4 - Classification
+#   - Sound selector
+#   - Give points ?
+# levels :
+# Level 1 : Metheor 1 (or 2 ) Vs 5
+# Level 2 : 3 or for vs type 5
+# Level 3 : 1 o 2 vs 3 4
+# Level 4 :

@@ -8,34 +8,50 @@ intents:
   - bot_challenge
   - bot_clasificar
   - bot_entrenar
+  - bot_opciones
   - hola_mundo
 
 actions:
   - action_hola_mundo
+  - action_classifying
+  - action_training
 
 responses:
   utter_greet:
-  - text: "Hola! que tal te va todo?"
+  - text: "Hola! que tal te va todo? "
+  - text: "Buenas, como va todo ?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
+  - text: "Aqui hay algo para animarte.. "
     image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+  - text: "Eso te ayudo?"
+  - text: "Te animó eso ?"
 
   utter_happy:
-  - text: "Great, carry on!"
+  - text: "Perfecto!"
+  - text: "Me alegro mucho que estes bien!"
+  - text: "Que guay ! empecemos con energia!"
+
+  utter_question_a:
+  - text: "¿ Qué deseas hacer ?"
+  - text: "¿Qué te gustaria hacer?"
+  - text: "¿Qué te apeteceria hacer?"
+
+  utter_if_you_want:
+  - text: "si deseas  podemos entrenar o clasificar, sonidos del cielo."
+
 
   utter_goodbye:
   - text: "Bye"
+  - text: "Hasta luego maricarmen"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot, powered by Rasa, pero mi padre es Jhosef Cardich Palma, él fue quien me dio la personalidad.. "
 
   utter_entrenar:
   - text: "Perfecto! Vamos a entrenar"
-  - text: "Vas a escuchar los siguientes audios entonces podras aprender de esa manera"
 
   utter_clasificar:
   - text: "Muy bien! vamos a clasificar "

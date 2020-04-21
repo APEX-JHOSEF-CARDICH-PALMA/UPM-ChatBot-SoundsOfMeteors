@@ -5,6 +5,7 @@
 .idea/workspace.xml
 .DS_Store
 /venv/lib/
+__pycache__/actions.cpython-37.pyc
 
 ### JetBrains ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
