@@ -13,15 +13,17 @@
  - Pycharm > preferencias .. 
  - Instalar paquete rasa (Esto reinstalara las dependencias que estan dentro de venv y asi instalara las que faltan tambien)
  - Una vez istalado podemos empezar a interactuar via teclado con nuestro bot ejecutando en la terminal: 
-    - Para entrenar nuestro modelo: >> rasa train 
-    - Para iniciar el servidor rasa donde correra nuestro bot: >> rasa shell
+    - > Para entrenar nuestro modelo: >> rasa train 
+    - > Para iniciar el servidor rasa donde correra nuestro bot: >> rasa shell
  - En el caso de que tengamos servicios, entonces tendremos que arrancar el servidor de servicios de rasa: 
-    -  >> rasa run services...
-   en ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si reconoce alguno en la conversacion con el usuario
+    - >  rasa run services...
+ - Wn ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si reconoce alguno en la conversacion con el usuario
 
 
 
+## Archivos principales 
 
+....
 
 ## Project Architecture 
 ### Let's take a look how this project architecture looks like:
