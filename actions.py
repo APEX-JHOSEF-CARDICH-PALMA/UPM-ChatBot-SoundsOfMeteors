@@ -6,11 +6,15 @@
 
 
 # This is a simple example for a custom action which utters "Hello World!"
-
+import sys
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from pygame import mixer  # Load the popular external library
+from pydub import AudioSegment
+from pydub.playback import play
 
+#from playsound import playsound
 
 ##########################################################
 # Available actions for the aplication
@@ -55,6 +59,9 @@ class ActionTraining(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(text=" Hola, ya estamos entrenando  !")
+        mixer.init()
+        mixer.music.load('Sounds/dontremove.mp3')
+        mixer.music.play()
 
         ## En este caso deberiamos saber como dirigir el flujo segun nuestro codigo aqui
 
@@ -72,7 +79,7 @@ class ActionClassifying(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(text="Ya estamos clasificando ....")
-
+        print("FUCK THIS ")
         return []
 
 

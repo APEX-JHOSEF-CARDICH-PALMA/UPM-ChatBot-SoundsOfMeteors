@@ -21,7 +21,7 @@
     - > Para entrenar nuestro modelo: >> rasa train 
     - > Para iniciar el servidor rasa donde correra nuestro bot: >> rasa shell
  - En el caso de que tengamos servicios, entonces tendremos que arrancar el servidor de servicios de rasa: 
-    - >  rasa run services...
+    - >  rasa run actions...
  - Wn ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si reconoce alguno en la conversacion con el usuario
 
 
