@@ -12,6 +12,27 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
 
+##########################################################
+# Available actions for the aplication
+##########################################################
+# 1 - Mensaje de bienvenida
+
+# 2 - A little explanation about how the classification works-
+#   - Explain the two options: trainnig and classification part itself
+
+# 3 - Training :
+#   - Explain the five types of metheor's sounds
+
+# 4 - Classification
+#   - Sound selector
+#   - Give points ?
+# levels :
+# Level 1 : Metheor 1 (or 2 ) Vs 5
+# Level 2 : 3 or for vs type 5
+# Level 3 : 1 o 2 vs 3 4
+# Level 4 :
+
+
 class ActionHelloWorld(Action):
 
     def name(self) -> Text:
@@ -54,22 +75,84 @@ class ActionClassifying(Action):
 
         return []
 
-##########################################################
-# Available actions for the aplication
-##########################################################
-# 1 - Mensaje de bienvenida
 
-# 2 - A little explanation about how the classification works-
-#   - Explain the two options: trainnig and classification part itself
+####################################################################################################################
+# 2: ACTIONS FOR SOUND SELECTION
+####################################################################################################################
 
-# 3 - Training :
-#   - Explain the five types of metheor's sounds
+class ActionSoundASelector(Action):
 
-# 4 - Classification
-#   - Sound selector
-#   - Give points ?
-# levels :
-# Level 1 : Metheor 1 (or 2 ) Vs 5
-# Level 2 : 3 or for vs type 5
-# Level 3 : 1 o 2 vs 3 4
-# Level 4 :
+    def name(self) -> Text:
+        return "action_sounda_selector"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Ya estamos clasificando ....")
+
+        return []
+
+
+class ActionSoundBSelector(Action):
+
+    def name(self) -> Text:
+        return "action_soundb_selector"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Ya estamos clasificando ....")
+
+        return []
+
+
+class ActionSoundCSelector(Action):
+
+    def name(self) -> Text:
+        return "action_soundc_selector"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Ya estamos clasificando ....")
+
+        return []
+
+
+class ActionSoundDSelector(Action):
+
+    def name(self) -> Text:
+        return "action_soundd_selector"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Ya estamos clasificando ....")
+
+        return []
+
+
+class ActionSoundESelector(Action):
+
+    def name(self) -> Text:
+        return "action_sounde_selector"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Ya estamos clasificando ....")
+
+        return []
+
+
+class ActionRandomSoundSelector(Action):
+
+    def name(self) -> Text:
+        return "action_randomsound_selector"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Ya estamos clasificando ....")
+
+        return []
