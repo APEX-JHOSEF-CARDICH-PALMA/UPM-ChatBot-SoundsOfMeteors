@@ -11,10 +11,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from pygame import mixer  # Load the popular external library
-from pydub import AudioSegment
-from pydub.playback import play
 
-#from playsound import playsound
 
 ##########################################################
 # Available actions for the aplication
