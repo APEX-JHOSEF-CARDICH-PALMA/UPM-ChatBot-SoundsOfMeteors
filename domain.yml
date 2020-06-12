@@ -10,11 +10,13 @@ intents:
   - bot_entrenar
   - bot_opciones
   - hola_mundo
+  - bot_aprender
 
 actions:
   - action_hola_mundo
   - action_classifying
   - action_training
+  - action_learning
 
 responses:
   utter_greet:
@@ -65,6 +67,8 @@ responses:
   utter_otro_nivel:
   - text: "Sigamos con el siguiente nivel !"
 
+  utter_aprender:
+  - text: Vamos a aprender los sonidos!
 
 session_config:
   session_expiration_time: 60

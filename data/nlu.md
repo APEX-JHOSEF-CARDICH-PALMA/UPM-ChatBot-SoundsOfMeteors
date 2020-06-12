@@ -99,3 +99,9 @@
 
 ## intent:hola_mundo
 - hola mundo
+
+## intent:bot_aprender
+- quiero aprender 
+- que tipos de sonidos existen 
+- dime todos los sonidos
+- deseo aprender
