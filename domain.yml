@@ -11,12 +11,22 @@ intents:
   - bot_opciones
   - hola_mundo
   - bot_aprender
+  - underdense_sample
+  - m_sample
+  - long_over_sample
+  - med_over_sample
+  - short_over_sample
 
 actions:
   - action_hola_mundo
   - action_classifying
   - action_training
   - action_learning
+  - action_underdense_sample
+  - action_m_sample
+  - action_long_over_sample
+  - action_med_over_sample
+  - action_short_over_sample
 
 responses:
   utter_greet:
@@ -42,11 +52,11 @@ responses:
   - text: "¿Qué te apeteceria hacer?"
 
   utter_if_you_want:
-  - text: "si deseas  podemos entrenar o clasificar, sonidos del cielo."
+  - text: "si deseas  podemos aprender o clasificar sonidos del cielo."
 
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "Nos vemos pronto, cuidate! "
   - text: "Hasta luego maricarmen"
 
   utter_iamabot:
@@ -61,14 +71,16 @@ responses:
   utter_msg_audio:
   - text: "Escucha el siguiente audio"
 
-  utter_desc_audio:
-  - text: "El audios que acabas de escuchar es de un meteorito en concreto"
-
   utter_otro_nivel:
   - text: "Sigamos con el siguiente nivel !"
 
   utter_aprender:
   - text: Vamos a aprender los sonidos!
+
+  utter_pause_sound:
+  - text: play_pause_sound
+
+
 
 session_config:
   session_expiration_time: 60

@@ -66,7 +66,44 @@
 * hola_mundo
   - action_hola_mundo
   
-## Llamada a aprender 
+## Llamada a aprender todos los sonidos
 * bot_aprender
   - utter_aprender
-  - action_learning 
+  - action_underdense_sample
+  - action_m_sample
+  - action_long_over_sample
+  - action_med_over_sample
+  - action_short_over_sample
+  - utter_if_you_want
+  - utter_question_a
+  
+# Reproducir un ejemplo de una underdense
+* underdense_sample
+  - action_underdense_sample
+  - utter_if_you_want
+  - utter_question_a
+  
+# Reproducir un ejemplo de una m
+* underdense_sample
+  - action_m_sample
+  - utter_if_you_want
+  - utter_question_a
+  
+# Reproducir un ejemplo de una overdense larga 
+* underdense_sample
+  - action_long_over_sample
+  - utter_if_you_want
+  - utter_question_a
+  
+# Reproducir un ejemplo de una overdense mediana 
+* med_over_sample
+  - action_med_over_sample
+  - utter_if_you_want
+  - utter_question_a
+  
+# Reproducir un ejemplo de una overdense cortas 
+* short_over_sample
+  - action_short_over_sample
+  - utter_if_you_want
+  - utter_question_a
+  

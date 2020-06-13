@@ -105,3 +105,28 @@
 - que tipos de sonidos existen 
 - dime todos los sonidos
 - deseo aprender
+
+## intent:underdense_sample
+-  suena una underdense ?
+- recuerdame como suena una underdense
+- quiero escuchar una underdense 
+
+## intent:m_sample
+-  suena una m ?
+- recuerdame como suena una m
+- quiero escuchar una m 
+
+## intent:long_over_sample
+-  suena una overdense larga  ?
+-  como suena una overdense larga 
+- quiero escuchar una overdense larga
+
+## intent:med_over_sample
+-  suena una overdense mediana  ?
+-  como suena una overdense mediana 
+-  escuchar una overdense mediana  
+
+## intent:short_over_sample
+-  suena una overdense corta  ?
+-  como suena una overdense corta 
+-  escuchar una overdense corta  
