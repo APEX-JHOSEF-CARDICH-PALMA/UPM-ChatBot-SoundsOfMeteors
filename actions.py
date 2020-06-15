@@ -11,6 +11,8 @@ import os
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
+import requests
 from pygame import mixer  # Load the popular external library
 
 
@@ -50,12 +52,13 @@ class ActionUnderdenseSelector(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
-                                          "meteoro underdense")
+      #  dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
+       #                                   "meteoro underdense")
         absPath=os.path.abspath("sounds/sonidos_entrenamiento/meteor1_underdense.wav")
         dispatcher.utter_message(absPath)
 
-        return []
+        return [SlotSet("sonido_actual","1")]
+
 
 
 #--------------------------------------------------------------------------------------------------
@@ -71,8 +74,8 @@ class ActionMSelector(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-            dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
-                                          "meteoro M ")
+       #     dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
+        #                                  "meteoro M ")
             absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor2_M.wav')
 
             #Cuando hemos encontrado el sonido, entonces devolvemos el path
@@ -80,7 +83,7 @@ class ActionMSelector(Action):
             #mixer.init()
             #mixer.music.load('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
             #mixer.music.play()
-            return []
+            return [SlotSet("sonido_actual","2")]
 
 #--------------------------------------------------------------------------------------------------
 
@@ -92,15 +95,15 @@ class ActionLongOverdenseSelector(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
-                                          "meteoro overdense largo ")
+       # dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
+       #                                   "meteoro overdense largo ")
         absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor3_long_overdense.wav')
         dispatcher.utter_message(text=absPath)
 
         # mixer.init()
         # mixer.music.load('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
         # mixer.music.play()
-        return []
+        return [SlotSet("sonido_actual","3")]
 #--------------------------------------------------------------------------------------------------
 
 
@@ -112,12 +115,12 @@ class ActionMediumOverdenseSelector(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
-                                          "meteoro overdense medio")
+      #  dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
+                                      #    "meteoro overdense medio")
         absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor4_medium_overdense.wav')
         dispatcher.utter_message(text=absPath)
 
-        return []
+        return [SlotSet("sonido_actual","4")]
 
 #--------------------------------------------------------------------------------------------------
 
@@ -129,12 +132,12 @@ class ActionShortOverdenseSelector(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
-                                          "meteoro overdense corto ")
+        #dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
+         #                                 "meteoro overdense corto ")
         absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
         dispatcher.utter_message(text=absPath)
 
-        return []
+        return [SlotSet("sonido_actual","5")]
 #--------------------------------------------------------------------------------------------------
 ##################################################################################
 
@@ -253,7 +256,7 @@ class ActionClassifying(Action):
 
 
 ####################################################################################################################
-
+## Recoge el nombre del usuario
 ####################################################################################################################
 
 class ActionHelloWorld(Action):
@@ -264,21 +267,57 @@ class ActionHelloWorld(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="Hello World!")
-        """
-        Aqui preguntaremos por el nombre del usuario
-        Mirar un utterance para poder guardar el nombre del usuario 
-        y seguir con ello a lo largo de todo el chat. Esdecir par aseguir el contexto de 
-        la conversaion 
 
+        player_name = tracker.get_slot('name')
+        dispatcher.utter_message(text="Bienvenido {} si deseas  podemos aprender, entrenar o clasificar sonidos del cielo. ¿Qué te gustaría hacer?".format(player_name))
 
-        -
-     Lo quese tiene que buscar es alguna manera de poder crear una variable estatica
-     en la que se este ejeutando la aplicacion para poder crear una sesiom
-
-     lo podemos crear para una sesion es tener un fichero de configuracion 
-     - Otra opcion seria poder crear una variable para tener la puntuacion del fichero
-        """
 
         return []
+
+####################################################################################################################
+## Comprueba la respuesta con el sonido actual
+####################################################################################################################
+
+
+
+
+class ActionSoundCheck(Action):
+    """
+    Esta clase sirve para reproducir el sonido de un meteoro undersense.
+    Dara una breve descripcion del sonido y lo reproducira
+    """
+
+    def name(self) -> Text:
+        return "action_check_sound"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        player_resp = tracker.get_slot('respuesta')
+        currently_sound= tracker.get_slot('sonido_actual')
+
+
+        s_player = self.switch(int(player_resp))
+        s_currently = self.switch(int(currently_sound))
+
+        if player_resp == currently_sound:
+            text="Muy bien! Has acertado el sonido es un " + s_player
+        elif player_resp == '':
+            text = " Es una opcion incorrecta"
+        else:
+         text = "oh! el sonido no es un " + s_player + ", la respuesta  es: " + s_currently
+        dispatcher.utter_message(text)
+        return []
+
+
+    def switch(self,case):
+        sw = {
+            1: 'underdense',
+            2: 'm',
+            3: 'overdense largo',
+            4: 'overdense medio',
+            5: 'overdense corto'
+        }
+        return sw.get(case, 'Opcion incorrecta')
 

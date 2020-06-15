@@ -10,12 +10,23 @@
 - que tal
 - Hey, estas ahi ?
 
+
+## intent:mi_nombre
+- hola mundo
+- mi nombre es [jhosef]{"entity":"name","value":"jhosef"}
+- yo me llamo [jhosef]{"entity":"name","value":"jhosef"}
+- me llamo [jhosef]{"entity":"name","value":"jhosef"}
+- me llamo [Juan]{"entity":"name","value":"Juan"}
+- me llamo [Raquel]{"entity":"name","value":"Raquel"}
+
+
+
 ## intent:goodbye
 - bye
 - goodbye
 - see you around
 - see you later
-- parar
+- Hata Luego, espero verte pronto!
 - vamos a descansar
 
 
@@ -77,17 +88,6 @@
 - am I talking to a bot?
 - am I talking to a human?
 
-## intent:bot_clasificar
-- clasificar
-- deseo clasificar
-
-## intent:bot_entrenar
-- quiero entrenar
-- entrenar 
-- deseo practicar
-- entrenamiento
-- deseo entrenarme 
-- quiero practicar
 
  
 
@@ -96,9 +96,6 @@
 - reiniciar
 - inicio
 - empezar de nuevo
-
-## intent:hola_mundo
-- hola mundo
 
 ## intent:bot_aprender
 - quiero aprender 
@@ -119,7 +116,7 @@
 ## intent:long_over_sample
 -  suena una overdense larga  ?
 -  como suena una overdense larga 
-- quiero escuchar una overdense larga
+-  escuchar una overdense larga
 
 ## intent:med_over_sample
 -  suena una overdense mediana  ?
@@ -130,3 +127,24 @@
 -  suena una overdense corta  ?
 -  como suena una overdense corta 
 -  escuchar una overdense corta  
+
+
+## intent:bot_clasificar
+- clasificar
+- deseo clasificar
+
+## intent:bot_entrenar
+- quiero entrenar
+- entrenar 
+- deseo practicar
+- entrenamiento
+- deseo entrenarme 
+- quiero practicar
+
+## intent:tipo_sonidos
+- es de tipo [1]{"entity":"respuesta","value":"1"}
+- es de tipo [2]{"entity":"respuesta","value":"2"}
+- es de tipo [3]{"entity":"respuesta","value":"3"}
+- es de tipo [4]{"entity":"respuesta","value":"4"}
+- es de tipo [5]{"entity":"respuesta","value":"5"}
+

@@ -9,13 +9,14 @@ intents:
   - bot_clasificar
   - bot_entrenar
   - bot_opciones
-  - hola_mundo
+  - mi_nombre
   - bot_aprender
   - underdense_sample
   - m_sample
   - long_over_sample
   - med_over_sample
   - short_over_sample
+  - tipo_sonidos
 
 actions:
   - action_hola_mundo
@@ -27,8 +28,28 @@ actions:
   - action_long_over_sample
   - action_med_over_sample
   - action_short_over_sample
+  - action_check_sound
+
+entities:
+  - name
+  - respuesta
+
+slots:
+    name:
+      type: text
+      initial_value: "amigo"
+
+    respuesta:
+      type: text
+      initial_value: "0"
+
+    sonido_actual:
+      type: text
+      initial_value: "0"
 
 responses:
+  utter_opciones:
+  - text: "Las opaciones son las siguientes "
   utter_greet:
   - text: "Hola! que tal te va todo? "
   - text: "Buenas, como va todo ?"
@@ -39,31 +60,29 @@ responses:
 
   utter_did_that_help:
   - text: "Eso te ayudo?"
-  - text: "Te animó eso ?"
+  - text: "Estás mas animado ?"
 
   utter_happy:
   - text: "Perfecto!"
   - text: "Me alegro mucho que estes bien!"
   - text: "Que guay ! empecemos con energia!"
 
-  utter_question_a:
-  - text: "¿ Qué deseas hacer ?"
-  - text: "¿Qué te gustaria hacer?"
-  - text: "¿Qué te apeteceria hacer?"
-
   utter_if_you_want:
-  - text: "si deseas  podemos aprender o clasificar sonidos del cielo."
+  - text: "Podemos aprender, entenar o clasificar sonidos del cielo."
 
 
-  utter_goodbye:
-  - text: "Nos vemos pronto, cuidate! "
-  - text: "Hasta luego maricarmen"
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa, pero mi padre es Jhosef Cardich Palma, él fue quien me dio la personalidad.. "
 
   utter_entrenar:
   - text: "Perfecto! Vamos a entrenar"
+
+  utter_presentando:
+  - text: "Te voy a ir presentando varios sonidos y me tendras que decir de que tipos son"
+
+  utter_dime_de_que:
+  - text: "{name}, dime de que tipo es el sonido?"
 
   utter_clasificar:
   - text: "Muy bien! vamos a clasificar "
@@ -82,6 +101,50 @@ responses:
 
 
 
+  utter_question_a:
+  - text: "¿Cúal es tu nombre?"
+  - text: "¿Como te llamas?"
+  - text: "¿Me podrias decir tu nombre?"
+
+  utter_question_b:
+  - text: "¿ Qué deseas hacer {name} ?"
+  - text: "¿Qué te gustaria hacer {name}?"
+  - text: "¿Qué te apeteceria hacer {name}?"
+
+
+  utter_question_c:
+  - text: "¿ Desea seguir  ?"
+  - text: "¿Quieres continuar"
+
+  utter_goodbye:
+  - text: "Nos vemos pronto, cuidate {name}! "
+  - text: "Hasta pronto {name}"
+
+
+
+  utter_sonido_escucharas:
+  - text: "El sonido que escucharas a continuacion "
+
+
+  utter_underdense_sample:
+  - text: "es un meteoro underdense o tipo 1 "
+
+  utter_m_sample:
+  - text: "es un meteoro tipo M o 2 "
+
+  utter_over_larg:
+  - text: "es un meteoro overdense largo o tipo 3"
+
+  utter_over_med:
+  - text: "es un meteoro overdense medio o tipo 4"
+
+  utter_over_short:
+  - text: "es un meteoro overdense corto o tipo 5"
+
+
+
+
+
 session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  session_expiration_time: 1
+  carry_over_slots_to_new_session: false
