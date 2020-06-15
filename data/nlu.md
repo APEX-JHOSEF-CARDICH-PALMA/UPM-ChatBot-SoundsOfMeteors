@@ -135,7 +135,7 @@
 
 ## intent:bot_entrenar
 - quiero entrenar
-- entrenar 
+- entr**enar 
 - deseo practicar
 - entrenamiento
 - deseo entrenarme 
