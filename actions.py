@@ -228,7 +228,8 @@ class ActionClassifying(Action):
          soundIndex = random.choice(sonidosAClasificar.counterClasificationList)
 
         dispatcher.utter_message(text="Dime, ¿De que tipo crees que es el siguiente sonido ? ")
-        dispatcher.utter_message(text= sonidosAClasificar.soundsList[soundIndex])
+       # dispatcher.utter_message(text= sonidosAClasificar.soundsList[soundIndex])
+        dispatcher.utter_message(json_message= {  "soundUri":sonidosAClasificar.soundsList[soundIndex]})
 
         #todo este le envia la uri del sonido, cuando el sonido esta en el bot  y despues en el frontal
         # el bot le tiene que preguntar ¿dime de que que tipo es el sonido? , si el niño le pide que le repita el
