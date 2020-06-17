@@ -135,7 +135,7 @@
 
 ## intent:bot_entrenar
 - quiero entrenar
-- entr**enar 
+- entrenar 
 - deseo practicar
 - entrenamiento
 - deseo entrenarme 
@@ -147,4 +147,3 @@
 - es de tipo [3]{"entity":"respuesta","value":"3"}
 - es de tipo [4]{"entity":"respuesta","value":"4"}
 - es de tipo [5]{"entity":"respuesta","value":"5"}
-

@@ -7,7 +7,9 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 import time
+import random
 import os
+from pathlib import Path
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -194,11 +196,12 @@ class ActionShortOverdenseSelector(Action):
 
 
 ########################################################################################################################
-## 3 - BIENVENIDA
+## 3 - CLASIFICACION
 ##----------------------------------------------------------------------------------------------------------------------
 
 ##......................................................
 ## Escogeun sonido, teniendo en cuenta ciertos parametros
+## para enviarlos al usuario para su clasificacion
 ##......................................................
 
 class ActionClassifying(Action):
@@ -215,8 +218,36 @@ class ActionClassifying(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="Ya estamos clasificando")
-        print("FUCK THIS ")
+        dispatcher.utter_message(text="Estoy escogiendo un sonido para ti...")
+
+        sonidosAClasificar = SoundListing.make_SoundListing('sounds/classify_sounds','sounds/classify_sounds')
+        #Buscamos el elemento que tenga 0 clasificaciones, si no existe cogemos cualquier de manera aleatorea
+        try:
+         soundIndex = sonidosAClasificar.counterClasificationList.index(0)
+        except ValueError:
+         soundIndex = random.choice(sonidosAClasificar.counterClasificationList)
+
+        dispatcher.utter_message(text="Dime, ¿De que tipo crees que es el siguiente sonido ? ")
+        dispatcher.utter_message(text= sonidosAClasificar.soundsList[soundIndex])
+
+        #todo este le envia la uri del sonido, cuando el sonido esta en el bot  y despues en el frontal
+        # el bot le tiene que preguntar ¿dime de que que tipo es el sonido? , si el niño le pide que le repita el
+        # sonido, entonces se vuelve a enviar mendiante un slot. Ese slot llamado clasificando_sonido
+        # tendra la uri que pondremos aqui, rellenandola desde aqui
+
+        # todo tambien hay que hacer otra clase , una acccion que una vez que se el usuario haya dado una repsuesta
+        # que se rellene en un slot_respuesta, se ejecutara una accion en la que se extraera la respueta.
+        # dicha respuesta se almacenara, en el archivo de clasificaciones, se aumentara en uno el numero de clasificaciones
+        # del sonido en la lista (la primera linea ) yy junto con la clasificacion se podra el nombre.
+
+        # todo ademas de ello se podria crear una clase que para que cuando el usuario pidiera el tipo de clasificacion
+        # que se la ha ido dando, esta accion accediera al archivo e hiciera una media de todas las clasifiacaciones
+        # para que asi hiciera una consulta de los datos (mejor hacer la mediana ...)
+
+        # tambien se puede hacer una clase en la que se busque quienes son los que mas clasifican, apareciendo de menor a mayot
+        # en un listado
+
+        # No he ehcho PUSH
         return []
 
 
@@ -233,33 +264,57 @@ class SoundListing(object):
     Esta clase sirve para poder listar los sonidos de un directorio
     Devuelve una lista con todos los sonidos (y sus localizaciones)
     y crea un archivo de texto en el path especificado, con la misma informacion
-
-    Tambien devuelva una lista de los archivos de clasificacion, asociados a cada sonido.
-    Si un archivo de clasificacion, para un sonido dado, no existe, entonces lo crea
+    asociados a cada sonido. Si un archivo de clasificacion, para un sonido dado, no
+    existe, entonces lo crea.
     """
-    soundsList = [] #Lista de sonidos a listar, dento de un directorio
+    soundsList = [] #Lista de sonidos (su localizacion), dento de un directorio
+    counterClasificationList = [] # En cada posicion de esta lista se almacena la cantidad de veces que ha sido clasificado  cada sonido
     soundListFilePath = '' #Archivo txt, con los nombres, linea a linea, de todos los sonidos de un directorio
-    soundClasificactionList = []
     #Constructor de la lista de sonidos
     def __init__(self,path_origen,path_destino):
-        list = []
 
-        filename = "soundList.txt" #Este será el archivo que tiene los sonidos para una session
-        file_path = os.path.join(path_destino, filename)
+        listAux = []
+        listadoNumClasificaciones = []
+        file_path = os.path.join(path_destino, "soundList.txt" )
+
         if not os.path.isdir(path_destino): #Si el directorio no existe, entonces se crea
             os.mkdir(path_destino)
-        soundFile = open(file_path, "w")
+
+        soundListFile = open(file_path, "w")
 
         # r=root, d=directories, f = files
         for r, d, f in os.walk(path_origen):
             for file in f:
-                if '.wav' in file:
-                    list.append(file)
-                    soundFile.write(file+'\n')
 
-        soundFile.close()
-        self.soundsList = list # aqui tenemos la lista de sonidos a ser usados para una session de juego
+             if '.wav' in file:
+                 listAux.append(os.path.join(r, file)) ## Aqui metemos to do el path de cada archivo encontrado
+                 soundListFile.write(file+'\n') ## Escribe todos los nombres de todos los ficheros en un archivo en el path destino
+                 soundFileName= Path(file).stem ## Obtiene el nombre de un fichero sin su extension
+                 global pathsTxtSounfFileClasification
+                 pathsTxtSounfFileClasification = os.path.join(path_destino,soundFileName+'.txt')
+
+                 if not os.path.isfile(pathsTxtSounfFileClasification):
+                     #Comprobamos en el path destino, si el ficher txt asociado a un sonido existe,
+                     #Sino, lo creamos
+                    txt =open (pathsTxtSounfFileClasification,"w")
+                    print('creado el archivo: '+txt.name )
+                    txt.write('0') #Escribimos un cero en la primera linea, asi se entiende que han habido 0 clasificaciones para ese sonido
+                    listadoNumClasificaciones.append(0)
+                    txt.close()
+                 else:
+                     with open(pathsTxtSounfFileClasification) as f: # Si existe solo lo abrimos en modo lectura
+                         first_line = f.readline().rstrip()   #Leemos la primera linea y ademas quitamos el salto de linea
+                     listadoNumClasificaciones.append(first_line) #ahora ponemos lo que hay en la primera linea dentro de la lista de numero de clasificaciones
+
+
+        soundListFile.close()
+        self.soundsList = listAux # aqui tenemos la lista de sonidos a ser usados para una session de juego
+        self.counterClasificationList = list(map(int, listadoNumClasificaciones)) #Convertimos la lista a Int
         self.soundListFilePath=file_path
+
+
+
+
 
     def make_SoundListing(path_origen,path_destino):
         soundListSession = SoundListing(path_origen,path_destino)
