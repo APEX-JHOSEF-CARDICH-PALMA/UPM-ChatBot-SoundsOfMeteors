@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CHATBOT - SKYBOY</title>
+    <!-- bootstrap  -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- ajax  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	
+  
+    <!-- style  -->
+    {% load static %}  
+    <link href="{% static "videoclub27/styles/styles-home.css" %}" rel="stylesheet">
+    <link href="{% static "videoclub27/styles/logo.css" %}" rel="stylesheet">
+	<script src="{% static "videoclub27/scripts/chat.js" %}"></script>
+</head>
+<body>
+
+
+<!------------------------------------------------------------------------>
+
+
+<!------------------------------------------------------------------------>
+
+<div class="pelicula">
+    <div align="center" class="cuadrochat" >
+		<div id="cuadrochat">
+			
+		</div>
+		<div class="row">
+			<input id="texto" type="text" placeholder="escribir texto"/>
+			<button id="boton-chat">enviar</button>
+		</div>
+	</div>
+</div>
+</body>
+</html>

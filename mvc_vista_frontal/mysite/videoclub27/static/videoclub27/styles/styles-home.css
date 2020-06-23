@@ -1,0 +1,18 @@
+.cuadrochat{
+	width: 250px;
+	background-color: #FAEBD7;
+}
+
+audio{
+	width: 150px;
+	height: 50px;
+}
+#mensaje-bot{
+    border-radius: 25px;
+    background: #f8de8d;
+}
+
+#mensaje-user{
+    border-radius: 25px;
+    background: #8df8ca;
+}

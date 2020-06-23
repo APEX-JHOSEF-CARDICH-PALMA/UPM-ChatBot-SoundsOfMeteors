@@ -1,5 +1,0 @@
-meteor2_M.wav,2
-meteor3_long overdense.wav,3
-meteor4_medium overdense.wav,4
-meteor5_short overdense.wav,5
-meteor1_underdense.wav,1
