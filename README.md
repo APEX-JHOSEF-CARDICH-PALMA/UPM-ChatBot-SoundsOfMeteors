@@ -1,22 +1,35 @@
- 
- <a href="http://fvcproductions.com"><img src="https://avatars1.githubusercontent.com/u/4284691?v=3&s=200" title="FVCproductions" alt="FVCproductions"></a>
-
-<!-- [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) -->
-
-***INSERT GRAPHIC HERE (include hyperlink in image)***
-
-# Repository Title Goes Here
-
-> ChatBot para Clasificar sonidos del cielo
 
 # Sonidos del Cielo ( Sounds of Meteors )
+> ChatBot para Clasificar sonidos del cielo
+---
+##  Tabla de contenidos
+> If your `README` has a lot of info, section headers might be nice.
+- [Introduccíon](Introducción (Introduction))
+- [About](#Acerca del proyecto (About))
+- [Instalación](#instalación)
+- [Features](#features)
+- [Contributing](#contributing)
+- [Team](#team)
+- [FAQ](#faq)
+- [Support](#support)
+- [License](#license)
+
+
+---
+
+ 
+ ## Introducción (Introduction)
+ - En este proyecto emplearemos python como tecnologia para poder desarrollar el bot, el cual seguira una implementacion marcada por RASA . 
+  
+## Acerca del proyecto (About)
+
   - [EN] This chatbot is being developed by Jhosef A. Cardich Palma as part of his Final Degree Project (TFG) for the Polytechnic University of Madrid. It is an application that offers an entertaining experience to classify sounds from the sky, with the idea of bringing the general public closer to science.
   - [ES] Este proyecto esta siendo desarrollado por Jhosef A. Cardich Palma como el trabajo de fin de carrera en la UPM. El trabajo tiene como objetivo la realizacion de un bot para el publico infanti, el cual podra clasificar los sonidos del cielo interanctuando con el asistente virtual. 
  
- ## Intro
- - En este proyecto emplearemos python como tecnologia para poder desarrollar el bot, el cual seguira una implementacion marcada por RASA . 
-  
- ## Funcionamiento
+## Instalación
+
+### Funcionamiento del módulo del juego y del ChatBot
+
  - En este repositorio se encuentra el proyecto, en el que se incluye el entorno virtual con el que se ha trabajado en  local (carpeta venv)
  sin embargo, en esta carpeta, se encuentra otra llamada "lib" (/venv/lib), la cual no se esta sincronizando con el repositorio aqui (pero si usa en local),
  debido a que  esta carpeta tiene dos modulos que pesan demasiado, por ello es recomendable, si deseas hacer funcionar esto:
@@ -30,14 +43,42 @@
  - Instalar paquete rasa (Esto reinstalara las dependencias que estan dentro de venv y asi instalara las que faltan tambien)
  - Una vez istalado podemos empezar a interactuar via teclado con nuestro bot ejecutando en la terminal: 
  - Ojo cuidado que en reinstalar rasa dentro de venv pesa mucho asi que hay que ver como arreglar lo de las dependencias
-    - > Para entrenar nuestro modelo: >> rasa train 
-    - > Para iniciar el servidor rasa donde correra nuestro bot: >> rasa shell
-    - > En el caso de la integración lo que tenemos que hacer para poner disponible los servicios de nuestro bot,
-    - > hay que ejecutar el comando  >>  rasa run --enable-api --cors "*", esto es asi, debido a que google chrome y rasa 
-    - > presentan un bloqueo por temas de seguridad
- - En el caso de que tengamos servicios, entonces tendremos que arrancar el servidor de servicios de rasa: 
-    - >  rasa run actions...
- - Wn ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si reconoce alguno en la conversacion con el usuario
+ 
+> Para entrenar nuestro modelo: 
+ ```
+ $ rasa train 
+ ```
+> Para iniciar el servidor rasa donde correra nuestro bot:
+  ```
+$ rasa shell
+  ```
+> En el caso de la integración lo que tenemos que hacer para poner disponible los servicios de nuestro bot,
+hay que ejecutar el comando  >>    
+```
+rasa run --enable-api --cors "*"
+```
+Esto es asi, debido a que google chrome y rasa presentan un bloqueo por temas de seguridad
+En el caso de que tengamos servicios, entonces tendremos que arrancar el servidor de
+> Servicios de rasa: 
+ ```
+$ rasa run actions...
+ ```
+> En ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si 
+> reconoce alguno en la conversacion con el usuario
+
+
+### Funcionamiento del frontal
+> Para poder hacer funcionar el frontal de la aplicación tne,os que situarnos
+> el diretorio:
+```
+/UPM-ChatBot-SoundsOfMeteors/mvc_vista_frontal/mysite
+```
+> Y luego ejecutar el comando: 
+```shell
+$ python3 manage.py runserver 0.0.0.0:8000
+
+```
+ 
 
 
 
@@ -93,22 +134,7 @@
 
 ![ttystudio GIF](https://raw.githubusercontent.com/chjj/ttystudio/master/img/example.gif)
 
----
 
-## Table of Contents (Optional)
-
-> If your `README` has a lot of info, section headers might be nice.
-
-- [Installation](#installation)
-- [Features](#features)
-- [Contributing](#contributing)
-- [Team](#team)
-- [FAQ](#faq)
-- [Support](#support)
-- [License](#license)
-
-
----
 
 ## Example (Optional)
 
