@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <title>CHATBOT - SKYBOY</title>
     <!-- bootstrap  -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- ajax  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
-	
-  
+
+
+
     <!-- style  -->
-    {% load static %}  
+    {% load static %}
     <link href="{% static "videoclub27/styles/styles-home.css" %}" rel="stylesheet">
     <link href="{% static "videoclub27/styles/logo.css" %}" rel="stylesheet">
 	<script src="{% static "videoclub27/scripts/chat.js" %}"></script>
@@ -26,16 +27,35 @@
 
 <!------------------------------------------------------------------------>
 
-<div class="pelicula">
-    <div align="center" class="cuadrochat" >
-		<div id="cuadrochat">
-			
-		</div>
-		<div class="row">
-			<input id="texto" type="text" placeholder="escribir texto"/>
-			<button id="boton-chat">enviar</button>
-		</div>
-	</div>
-</div>
+<div class="container">
+  <div class="jumbotron">
+  <h1 class="display-8">Clasificador de Sonidos del Cielo</h1>
+
+      <div class="row" id="row-container-all">
+         <div class="col">
+         2 of 3
+         </div>
+
+         <div class="col-6" id="chat-col">
+            <div class="row" id="chat-container" align="center" >
+                <div id="cuadrochat">
+                </div>
+            </div>
+            <div class="row" id="input-box-container">
+                <input id="texto"  class="form-control" type="text" placeholder="escribir texto"/>
+            </div>
+            <div class="row" id="boton-container">
+                <button class="btn btn-primary btn-lg btn-block p-1 mb-1 bg-danger text-white" id="boton-chat" >Enviar</button>
+            </div>
+
+         </div>
+
+         <div class="col">
+          3 of 3
+          </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
