@@ -27,12 +27,8 @@ $(document).ready(function () {
 							}
 
 
-						});
-
-						var delay = 10;
-						setTimeout(function() {
 							$("#cuadrochat").append(receive);
-						}, delay);
+						});
 						
 						
 					}

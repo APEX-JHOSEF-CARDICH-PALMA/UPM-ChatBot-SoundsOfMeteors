@@ -7,11 +7,8 @@
 
 # Repository Title Goes Here
 
-> Subtitle or Short Description Goes Here
+> ChatBot para Clasificar sonidos del cielo
 
-> ideally one sentence
-
-> include terms/tags that can be searched
 # Sonidos del Cielo ( Sounds of Meteors )
   - [EN] This chatbot is being developed by Jhosef A. Cardich Palma as part of his Final Degree Project (TFG) for the Polytechnic University of Madrid. It is an application that offers an entertaining experience to classify sounds from the sky, with the idea of bringing the general public closer to science.
   - [ES] Este proyecto esta siendo desarrollado por Jhosef A. Cardich Palma como el trabajo de fin de carrera en la UPM. El trabajo tiene como objetivo la realizacion de un bot para el publico infanti, el cual podra clasificar los sonidos del cielo interanctuando con el asistente virtual. 
@@ -35,6 +32,9 @@
  - Ojo cuidado que en reinstalar rasa dentro de venv pesa mucho asi que hay que ver como arreglar lo de las dependencias
     - > Para entrenar nuestro modelo: >> rasa train 
     - > Para iniciar el servidor rasa donde correra nuestro bot: >> rasa shell
+    - > En el caso de la integración lo que tenemos que hacer para poner disponible los servicios de nuestro bot,
+    - > hay que ejecutar el comando  >>  rasa run --enable-api --cors "*", esto es asi, debido a que google chrome y rasa 
+    - > presentan un bloqueo por temas de seguridad
  - En el caso de que tengamos servicios, entonces tendremos que arrancar el servidor de servicios de rasa: 
     - >  rasa run actions...
  - Wn ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si reconoce alguno en la conversacion con el usuario
@@ -48,7 +48,7 @@
 ## Project Architecture 
 ### Let's take a look how this project architecture looks like:
  
- ![Project  Architecture](architecture.jpg)
+ ![Project  Architecture](mvc_control_bot _juego/architecture.jpg)
  
 **Badges will go here**
 
