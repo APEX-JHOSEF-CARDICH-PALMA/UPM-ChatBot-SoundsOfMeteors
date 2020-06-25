@@ -4,8 +4,9 @@
 ---
 ##  Tabla de contenidos
 > If your `README` has a lot of info, section headers might be nice.
-- [Introduccíon](Introducción (Introduction))
-- [About](#Acerca del proyecto (About))
+- [Arquitectura](#Arquitectura)
+- [Introduccíon](#Introducción (Introduction))
+- [About](#Acerca )
 - [Instalación](#instalación)
 - [Features](#features)
 - [Contributing](#contributing)
@@ -20,60 +21,119 @@
  
  ## Introducción (Introduction)
  - En este proyecto emplearemos python como tecnologia para poder desarrollar el bot, el cual seguira una implementacion marcada por RASA . 
-  
-## Acerca del proyecto (About)
+---
+ ## About
 
   - [EN] This chatbot is being developed by Jhosef A. Cardich Palma as part of his Final Degree Project (TFG) for the Polytechnic University of Madrid. It is an application that offers an entertaining experience to classify sounds from the sky, with the idea of bringing the general public closer to science.
   - [ES] Este proyecto esta siendo desarrollado por Jhosef A. Cardich Palma como el trabajo de fin de carrera en la UPM. El trabajo tiene como objetivo la realizacion de un bot para el publico infanti, el cual podra clasificar los sonidos del cielo interanctuando con el asistente virtual. 
+ ---
+## Arquitectura
+Let's take a look how this project architecture looks like:
  
+ ![Project  Architecture](mvc_control_bot _juego/architecture.jpg)
+ 
+
 ## Instalación
+
+ - En este repositorio se encuentra el proyecto, en el que se incluye el entorno virtual con el que se ha trabajado en  local (carpeta venv)
+ sin embargo, en esta carpeta, se encuentra otra llamada "lib" (/venv/lib), la cual no se esta sincronizando con el repositorio aqui (pero si usa en local), debido a que  esta carpeta tiene dos modulos que pesan demasiado, por ello es recomendable, si deseas hacer funcionar esto:
+ #### Configuración Entorno
+ 
+ 
+ - Una vez clonado el proyecto, hay que hacer una serie de comprobaciones. Se ha usado Pycharm para el desarrollo del Bot, por ello se recomienda usarlo. Hay que asegurarnos que estamos usando la version de Phyton 3.7 y que el entorno venv esta configurado correctamente, también lo haremos cuando hayamos instalado RASA. Podemos encontras las configuraciones en : 
+
+ > Abrir el proyecto con Pycharm:
+
+ ```
+Pycharm > preferencias .. 
+ ```
+
+- Instalar los paquetes del framework RASA :
+
+Este paso es necesario, ya que de otra maneras no podrems usar las caracteristicas de nuestro bot, como entrenarlo, definirlo o exponerlo para consuimirlo.
+
+
+reinstalara las dependencias que estan dentro de venv y asi instalara las que faltan también.
+
+ - Una vez istalado podemos empezar a interactuar via teclado con nuestro bot ejecutando en la terminal: 
+ - Ojo cuidado que en reinstalar rasa dentro de venv pesa mucho asi que hay que ver como arreglar lo de las dependencias
+
 
 ### Funcionamiento del módulo del juego y del ChatBot
 
- - En este repositorio se encuentra el proyecto, en el que se incluye el entorno virtual con el que se ha trabajado en  local (carpeta venv)
- sin embargo, en esta carpeta, se encuentra otra llamada "lib" (/venv/lib), la cual no se esta sincronizando con el repositorio aqui (pero si usa en local),
- debido a que  esta carpeta tiene dos modulos que pesan demasiado, por ello es recomendable, si deseas hacer funcionar esto:
- 
- 
- 
- - Clonar el proyecto
- - Recomiendo usar Pycharm
- - Abrir el proyecto con Pycharm, entonces
- - Pycharm > preferencias .. 
- - Instalar paquete rasa (Esto reinstalara las dependencias que estan dentro de venv y asi instalara las que faltan tambien)
- - Una vez istalado podemos empezar a interactuar via teclado con nuestro bot ejecutando en la terminal: 
- - Ojo cuidado que en reinstalar rasa dentro de venv pesa mucho asi que hay que ver como arreglar lo de las dependencias
- 
-> Para entrenar nuestro modelo: 
+
+ ### Modulo Back - Lógica del Juego
+***Servicios  RASA***
+
+  Otra parte escencial del proyecto es la lógica del juego, para ello se ha desarrollado una aplicación en Phyton, integrada en framework de RASA, la cuál define las funcionalidad de acceso a los sonidos, la clasificación, almacenamiento de los datos de clasificación, y otros procesamientos independientes de la parte conversacional que es el bot. Estos servicios serán usados por el bot cuando este reconozca un comando por parte del usuario.
+
+- Para iniciar los servicios solo tenemos que situarnos en el directorio anterior y ejcutar el siguiente comando:
+
+ ```
+$ rasa run actions...
+ ```
+ ### Módulo Back - ChatBot
+
+
+- Para entrenar nuestro modelo nos situamos en el siguiente directorio:
+ ```
+ "/UPM-ChatBot-SoundsOfMeteors/mvc_control_bot_juego"
+ ```
+ - Estando ya en el directorio, ejecutamos el siguiente comando para entrenar el modelo:
  ```
  $ rasa train 
  ```
+ - Una vez que nuestro rasa ha terminado de formar el universo de nuestro bot este se encuentra ya listo para poder usarlo. Entonces podemos conversar con el bot conectando un frontal web o la consola de comandos. La segunda opción es la mas inmediata. Para poder comunicarnos con nuestro bot via consola,  ejecutamos el siguiente comando en una terminal. Este inicia el servidor RASA y ademas nos da una terminal de entrada para poder comunicarnos via texto con nuestro bot: 
 > Para iniciar el servidor rasa donde correra nuestro bot:
   ```
 $ rasa shell
   ```
-> En el caso de la integración lo que tenemos que hacer para poner disponible los servicios de nuestro bot,
-hay que ejecutar el comando  >>    
+- Si el comando se ha realizado con éxito, se mostrara un mensaje como este:
+
+ ![Project  Architecture](docs/001_conf.png)
+
+---
+## Integración con APPS externas
+En el caso de la integración con aplicaciones externas lo que tenemos que hacer para poner disponible los servicios de nuestro bot. Se pueden realizar pruebas sobre mensajes con el software postman. En ese caso sencillo hay que exponer los servicios de nuestro bot con el siguiente comando:
+
+> Exponer los servicios de nuestro bot
+- Nos situamos siempre en el directorio donde hemos entrenado nuestro bot y ejecutamos:
+```
+$ rasa run
+```
+- En el caso de que el servidor se haya iniciado sin nigun problema, el aspecto de la terminar es la siguiente: 
+
+ ![Project  Architecture](docs/002_conf.png)
+
+
+> Exponer los servicios de nuestro bot con Extra Google Chrome
+- Si queremos consumir el modulo controlador desde un navegador, es decir, conectar el frontal con el Back del proyecto, hay que usar el siguiente comando que nos desactivara ciertas características de seguridad de RASA las cuales entran en conflicto con los navegadores. Esto se tiene que hacer al usar el frontal creado para el proyecto. Ejecutar el siguiente comando:
+
 ```
 rasa run --enable-api --cors "*"
 ```
-Esto es asi, debido a que google chrome y rasa presentan un bloqueo por temas de seguridad
-En el caso de que tengamos servicios, entonces tendremos que arrancar el servidor de
-> Servicios de rasa: 
- ```
-$ rasa run actions...
- ```
-> En ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si 
-> reconoce alguno en la conversacion con el usuario
+> Consumir  servicios
 
+- Podremos consumir los servicios en la siguiente URI (`POST`): 
+```
+http://localhost:5005/webhooks/rest/webhook
+```
 
-### Funcionamiento del frontal
-> Para poder hacer funcionar el frontal de la aplicación tne,os que situarnos
-> el diretorio:
+- Una prueba de operación `POST` en postman, donde se ve el mensaje enviado y la contestación del Bot. Hay que notar un detalle, y es que el la ultima parte del mensaje enviado por el bot ha sido generado por la aplicación del juego definida en las acciones de RASA, las cuales estan activas porque las hemos activado previamente (Modulo Back - Lógica del Juego) .
+
+ ![Project  Architecture](docs/003_conf.png)
+
+ En ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si reconoce alguno en la conversacion con el usuario.
+
+---
+## Funcionamiento del frontal
+
+Por la arquitectura propuesta, se ha desarrollado una aplicación frontal  basada en el framework Web de Django.
+- Para poder hacer funcionar el frontal de la aplicación tenemos que situarnos el diretorio:
 ```
 /UPM-ChatBot-SoundsOfMeteors/mvc_vista_frontal/mysite
 ```
-> Y luego ejecutar el comando: 
+- Hay que arrancar el servidor de la siguiente manera: 
 ```shell
 $ python3 manage.py runserver 0.0.0.0:8000
 
@@ -82,31 +142,7 @@ $ python3 manage.py runserver 0.0.0.0:8000
 
 
 
-## Archivos principales 
 
-....
-
-## Project Architecture 
-### Let's take a look how this project architecture looks like:
- 
- ![Project  Architecture](mvc_control_bot _juego/architecture.jpg)
- 
-**Badges will go here**
-
-- build status
-- issues (waffle.io maybe)
-- devDependencies
-- npm package
-- coverage
-- slack
-- downloads
-- gitter chat
-- license
-- etc.
-
-[![Build Status](http://img.shields.io/travis/badges/badgerbadgerbadger.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger) [![Dependency Status](http://img.shields.io/gemnasium/badges/badgerbadgerbadger.svg?style=flat-square)](https://gemnasium.com/badges/badgerbadgerbadger) [![Coverage Status](http://img.shields.io/coveralls/badges/badgerbadgerbadger.svg?style=flat-square)](https://coveralls.io/r/badges/badgerbadgerbadger) [![Code Climate](http://img.shields.io/codeclimate/github/badges/badgerbadgerbadger.svg?style=flat-square)](https://codeclimate.com/github/badges/badgerbadgerbadger) [![Github Issues](http://githubbadges.herokuapp.com/badges/badgerbadgerbadger/issues.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger/issues) [![Pending Pull-Requests](http://githubbadges.herokuapp.com/badges/badgerbadgerbadger/pulls.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger/pulls) [![Gem Version](http://img.shields.io/gem/v/badgerbadgerbadger.svg?style=flat-square)](https://rubygems.org/gems/badgerbadgerbadger) [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org) [![Badges](http://img.shields.io/:badges-9/9-ff6799.svg?style=flat-square)](https://github.com/badges/badgerbadgerbadger)
-
-- For more on these wonderful ~~badgers~~ badges, refer to <a href="http://badges.github.io/badgerbadgerbadger/" target="_blank">`badgerbadgerbadger`</a>.
 
 ***INSERT ANOTHER GRAPHIC HERE***
 
@@ -180,7 +216,7 @@ $ bower install
 
 - For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
 
----
+
 
 ## Features
 ## Usage (Optional)
