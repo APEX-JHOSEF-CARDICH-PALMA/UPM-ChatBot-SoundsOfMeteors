@@ -114,7 +114,7 @@ responses:
 
   utter_question_c:
   - text: "¿ Desea seguir  ?"
-  - text: "¿Quieres continuar"
+  - text: "¿Quieres continuar?"
 
   utter_goodbye:
   - text: "Nos vemos pronto, cuidate {name}! "

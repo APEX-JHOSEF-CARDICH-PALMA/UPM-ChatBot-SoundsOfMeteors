@@ -1,12 +1,14 @@
 
-# Sonidos del Cielo ( Sounds of Meteors )
-> ChatBot para Clasificar sonidos del cielo
+#  ChatBot para Clasificar Sonidos del Cielo
+> Sky Sounds Chatbot Classifier 
+
 ---
 ##  Tabla de contenidos
-> If your `README` has a lot of info, section headers might be nice.
-- [Arquitectura](#Arquitectura)
-- [Introduccíon](#Introducción (Introduction))
+
+
+- [Introduccíon](#Introducción)
 - [About](#Acerca )
+- [Arquitectura](#Arquitectura)
 - [Instalación](#instalación)
 - [Features](#features)
 - [Contributing](#contributing)
@@ -19,19 +21,31 @@
 ---
 
  
- ## Introducción (Introduction)
+ ## Introducción
  - En este proyecto emplearemos python como tecnologia para poder desarrollar el bot, el cual seguira una implementacion marcada por RASA . 
 ---
  ## About
 
-  - [EN] This chatbot is being developed by Jhosef A. Cardich Palma as part of his Final Degree Project (TFG) for the Polytechnic University of Madrid. It is an application that offers an entertaining experience to classify sounds from the sky, with the idea of bringing the general public closer to science.
-  - [ES] Este proyecto esta siendo desarrollado por Jhosef A. Cardich Palma como el trabajo de fin de carrera en la UPM. El trabajo tiene como objetivo la realizacion de un bot para el publico infanti, el cual podra clasificar los sonidos del cielo interanctuando con el asistente virtual. 
+  - 🇬🇧 This chatbot is being developed by [Jhosef A. Cardich Palma](https://www.linkedin.com/in/jhosef-anderson-cardich-palma-74765788/) as part of his Final Degree Project (TFG) for the [Polytechnic University of Madrid ](https://www.upm.es/) as a part of its Computer Science Degree on the [Higher Technical School of Computer Engineers](https://www.fi.upm.es/). The  ***Sky Sounds Chatbot Classifier***  is an application that offers an entertaining experience to classify sounds from the sky,  bringing the general public closer to science.This application is part of
+[Star counter](http://www.contadoresdeestrellas.org/), it's a big project with the collaboration of  ***Instituto Astrofísico de Canarias***. 
+
+---
+  - 🇪🇸 Este proyecto esta siendo desarrollado por [Jhosef A. Cardich Palma](https://www.linkedin.com/in/jhosef-anderson-cardich-palma-74765788/) como el trabajo de fin de carrera en la [Universidad Politécnica de Madrid](https://www.upm.es/) para el grado de Ingeniería Informática en la [Escuela Técnica Superior de Ingenieros Informáticos](https://www.fi.upm.es/). La aplicación ***Chatbot Clasificador de Sonidos del Cielo*** tiene como objetivo la realizacion de un bot para el publico infanti, el cual podra clasificar los sonidos del cielo interactuando con el asistente virtual.  Esta aplición forma parte de un proyecto mas grande. [Contadores de Estrellas](http://www.contadoresdeestrellas.org/) es un proyecto realizado en colaboración con el ***Instituto Astrofísico de Canarias***.
+
+
+
+ ![Project  Architecture](documentation/000_conf.jpeg)
+
  ---
 ## Arquitectura
+
+Para la implementación general se ha seguido un patrón ***Modelo Vista Controlador (MVC)*** , para definir los componentes y sus interacciones. 
 Let's take a look how this project architecture looks like:
- 
- ![Project  Architecture](mvc_control_bot _juego/architecture.jpg)
- 
+
+ ***Organización MVC del Proyecto***
+
+ ![Project  Architecture](documentation/architecture.jpg)
+
 
 ## Instalación
 
@@ -59,10 +73,10 @@ reinstalara las dependencias que estan dentro de venv y asi instalara las que fa
  - Ojo cuidado que en reinstalar rasa dentro de venv pesa mucho asi que hay que ver como arreglar lo de las dependencias
 
 
-### Funcionamiento del módulo del juego y del ChatBot
+### Configuración del módulo del juego y del ChatBot
 
 
- ### Modulo Back - Lógica del Juego
+ ###  Modulo Back - Lógica del Juego
 ***Servicios  RASA***
 
   Otra parte escencial del proyecto es la lógica del juego, para ello se ha desarrollado una aplicación en Phyton, integrada en framework de RASA, la cuál define las funcionalidad de acceso a los sonidos, la clasificación, almacenamiento de los datos de clasificación, y otros procesamientos independientes de la parte conversacional que es el bot. Estos servicios serán usados por el bot cuando este reconozca un comando por parte del usuario.
@@ -90,12 +104,12 @@ $ rasa shell
   ```
 - Si el comando se ha realizado con éxito, se mostrara un mensaje como este:
 
- ![Project  Architecture](docs/001_conf.png)
+ ![Project  Architecture](documentation/001_conf.png)
 
 ---
 ## Integración con APPS externas
 En el caso de la integración con aplicaciones externas lo que tenemos que hacer para poner disponible los servicios de nuestro bot. Se pueden realizar pruebas sobre mensajes con el software postman. En ese caso sencillo hay que exponer los servicios de nuestro bot con el siguiente comando:
-
+***Consumir mediante POSTMAN***
 > Exponer los servicios de nuestro bot
 - Nos situamos siempre en el directorio donde hemos entrenado nuestro bot y ejecutamos:
 ```
@@ -103,9 +117,9 @@ $ rasa run
 ```
 - En el caso de que el servidor se haya iniciado sin nigun problema, el aspecto de la terminar es la siguiente: 
 
- ![Project  Architecture](docs/002_conf.png)
+ ![Project  Architecture](documentation/002_conf.png)
 
-
+***Consumir Mediante un Navegador - Cliente Web***
 > Exponer los servicios de nuestro bot con Extra Google Chrome
 - Si queremos consumir el modulo controlador desde un navegador, es decir, conectar el frontal con el Back del proyecto, hay que usar el siguiente comando que nos desactivara ciertas características de seguridad de RASA las cuales entran en conflicto con los navegadores. Esto se tiene que hacer al usar el frontal creado para el proyecto. Ejecutar el siguiente comando:
 
@@ -118,15 +132,16 @@ rasa run --enable-api --cors "*"
 ```
 http://localhost:5005/webhooks/rest/webhook
 ```
+---
 
-- Una prueba de operación `POST` en postman, donde se ve el mensaje enviado y la contestación del Bot. Hay que notar un detalle, y es que el la ultima parte del mensaje enviado por el bot ha sido generado por la aplicación del juego definida en las acciones de RASA, las cuales estan activas porque las hemos activado previamente (Modulo Back - Lógica del Juego) .
+Una prueba de operación `POST` en postman, donde se ve el mensaje enviado y la contestación del Bot. Hay que notar un detalle, y es que el la ultima parte del mensaje enviado por el bot ha sido generado por la aplicación del juego definida en las acciones de RASA, las cuales estan activas porque las hemos activado previamente (Modulo Back - Lógica del Juego) .
 
- ![Project  Architecture](docs/003_conf.png)
+ ![Project  Architecture](documentation/003_conf.png)
 
  En ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si reconoce alguno en la conversacion con el usuario.
 
 ---
-## Funcionamiento del frontal
+## Configuración del Frontal
 
 Por la arquitectura propuesta, se ha desarrollado una aplicación frontal  basada en el framework Web de Django.
 - Para poder hacer funcionar el frontal de la aplicación tenemos que situarnos el diretorio:

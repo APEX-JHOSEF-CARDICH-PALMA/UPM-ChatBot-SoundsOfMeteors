@@ -85,7 +85,8 @@ class ActionUnderdenseSelector(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
       #  dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
        #                                   "meteoro underdense")
-        absPath=os.path.abspath("sounds/sonidos_entrenamiento/meteor1_underdense.wav")
+        #absPath=os.path.abspath("sounds/sonidos_entrenamiento/meteor1_underdense.wav")
+        absPath="sounds/sonidos_entrenamiento/meteor1_underdense.wav"
         dispatcher.utter_message(absPath)
 
         return [SlotSet("sonido_actual","1")]
@@ -110,7 +111,8 @@ class ActionMSelector(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
        #     dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
         #                                  "meteoro M ")
-            absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor2_M.wav')
+           # absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor2_M.wav')
+            absPath = 'sounds/sonidos_entrenamiento/meteor2_M.wav'
 
             #Cuando hemos encontrado el sonido, entonces devolvemos el path
             dispatcher.utter_message(text=absPath)
@@ -137,7 +139,8 @@ class ActionLongOverdenseSelector(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
        # dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
        #                                   "meteoro overdense largo ")
-        absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor3_long_overdense.wav')
+        #absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor3_long_overdense.wav')
+        absPath = 'sounds/sonidos_entrenamiento/meteor3_long_overdense.wav'
         dispatcher.utter_message(text=absPath)
 
         # mixer.init()
@@ -164,9 +167,9 @@ class ActionMediumOverdenseSelector(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
       #  dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
                                       #    "meteoro overdense medio")
-        absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor4_medium_overdense.wav')
+       # absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor4_medium_overdense.wav')
+        absPath ='sounds/sonidos_entrenamiento/meteor4_medium_overdense.wav'
         dispatcher.utter_message(text=absPath)
-
         return [SlotSet("sonido_actual","4")]
 
 #--------------------------------------------------------------------------------------------------
@@ -188,7 +191,9 @@ class ActionShortOverdenseSelector(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         #dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
          #                                 "meteoro overdense corto ")
-        absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
+       # absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
+        absPath ='sounds/sonidos_entrenamiento/meteor5_short overdense.wav'
+
         dispatcher.utter_message(text=absPath)
 
         return [SlotSet("sonido_actual","5")]
@@ -229,7 +234,7 @@ class ActionClassifying(Action):
 
         dispatcher.utter_message(text="Dime, ¿De que tipo crees que es el siguiente sonido ? ")
        # dispatcher.utter_message(text= sonidosAClasificar.soundsList[soundIndex])
-        dispatcher.utter_message(json_message= {  "soundUri":sonidosAClasificar.soundsList[soundIndex]})
+        dispatcher.utter_message(json_message= {"soundUri":sonidosAClasificar.soundsList[soundIndex]})
 
         #todo este le envia la uri del sonido, cuando el sonido esta en el bot  y despues en el frontal
         # el bot le tiene que preguntar ¿dime de que que tipo es el sonido? , si el niño le pide que le repita el

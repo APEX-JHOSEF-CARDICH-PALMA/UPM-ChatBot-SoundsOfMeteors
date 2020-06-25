@@ -2,9 +2,9 @@ $(document).ready(function () {
 	
 	$("#boton-chat").click(function(){
 		base = "http://localhost";
-		texto = $("#texto").val();
+		texto = $("#texto-box").val();
 
-			$("#cuadrochat").append("</br><div class= 'text-right p-1 mb-1 bg-success text-white' id='message-user'> <p>" + texto + "</p></div>")
+			$("#cuadro-chat").append("</br><div class= 'text-right p-1 mb-1 bg-warning text-black font-weight-bold' id='burbuja-user'> <p>" + texto + "</p></div>")
 
 		content = {
 			  "sender": "Rasa","message": texto
@@ -23,11 +23,11 @@ $(document).ready(function () {
 								if(val.custom.soundUri != undefined)
 								receive = "<audio id='sound-control' controls autoplay><source src=\""+base + ":8000"+"/sonidos/"+val.custom.soundUri+"\" type=\"audio/wav\"></audio>";
 							}else{
-								receive = "</br><div class= 'text-left p-1 mb-1 bg-primary text-white' id='message-bot'> <p>" + val.text+"</p></div>";
+								receive = "</br><div class= 'text-left p-1 mb-1 bg-primary text-white font-weight-bold' id='burbuja-bot'> <p>" + val.text+"</p></div>";
 							}
 
 
-							$("#cuadrochat").append(receive);
+							$("#cuadro-chat").append(receive);
 						});
 						
 						
