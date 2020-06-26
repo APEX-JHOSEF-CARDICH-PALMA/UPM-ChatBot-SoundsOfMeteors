@@ -86,9 +86,9 @@ class ActionUnderdenseSelector(Action):
       #  dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
        #                                   "meteoro underdense")
         #absPath=os.path.abspath("sounds/sonidos_entrenamiento/meteor1_underdense.wav")
-        absPath="sounds/sonidos_entrenamiento/meteor1_underdense.wav"
-        dispatcher.utter_message(absPath)
-
+       # absPath="sounds/sonidos_entrenamiento/meteor1_underdense.wav"
+       # dispatcher.utter_message(absPath)
+        dispatcher.utter_message(json_message={"soundUri": 'sounds/sonidos_entrenamiento/meteor1_underdense.wav'})
         return [SlotSet("sonido_actual","1")]
 
 
@@ -115,7 +115,9 @@ class ActionMSelector(Action):
             absPath = 'sounds/sonidos_entrenamiento/meteor2_M.wav'
 
             #Cuando hemos encontrado el sonido, entonces devolvemos el path
-            dispatcher.utter_message(text=absPath)
+            #dispatcher.utter_message(text=absPath)
+
+            dispatcher.utter_message(json_message={"soundUri":'sounds/sonidos_entrenamiento/meteor2_M.wav'})
             #mixer.init()
             #mixer.music.load('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
             #mixer.music.play()
@@ -140,9 +142,9 @@ class ActionLongOverdenseSelector(Action):
        # dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
        #                                   "meteoro overdense largo ")
         #absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor3_long_overdense.wav')
-        absPath = 'sounds/sonidos_entrenamiento/meteor3_long_overdense.wav'
-        dispatcher.utter_message(text=absPath)
-
+      #  absPath = 'sounds/sonidos_entrenamiento/meteor3_long_overdense.wav'
+       # dispatcher.utter_message(text=absPath)
+        dispatcher.utter_message(json_message={"soundUri":'sounds/sonidos_entrenamiento/meteor3_long_overdense.wav'})
         # mixer.init()
         # mixer.music.load('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
         # mixer.music.play()
@@ -168,8 +170,9 @@ class ActionMediumOverdenseSelector(Action):
       #  dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
                                       #    "meteoro overdense medio")
        # absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor4_medium_overdense.wav')
-        absPath ='sounds/sonidos_entrenamiento/meteor4_medium_overdense.wav'
-        dispatcher.utter_message(text=absPath)
+        #absPath ='sounds/sonidos_entrenamiento/meteor4_medium_overdense.wav'
+        dispatcher.utter_message(json_message={"soundUri":'sounds/sonidos_entrenamiento/meteor4_medium_overdense.wav'})
+        #dispatcher.utter_message(text=absPath)
         return [SlotSet("sonido_actual","4")]
 
 #--------------------------------------------------------------------------------------------------
@@ -192,9 +195,9 @@ class ActionShortOverdenseSelector(Action):
         #dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
          #                                 "meteoro overdense corto ")
        # absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
-        absPath ='sounds/sonidos_entrenamiento/meteor5_short overdense.wav'
-
-        dispatcher.utter_message(text=absPath)
+       # absPath ='sounds/sonidos_entrenamiento/meteor5_short overdense.wav'
+        dispatcher.utter_message(json_message= {"soundUri":'sounds/sonidos_entrenamiento/meteor5_short overdense.wav'})
+    #    dispatcher.utter_message(text=absPath)
 
         return [SlotSet("sonido_actual","5")]
 #--------------------------------------------------------------------------------------------------

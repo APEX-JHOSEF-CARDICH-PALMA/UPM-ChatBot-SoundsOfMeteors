@@ -51,23 +51,25 @@ Let's take a look how this project architecture looks like:
 
  - En este repositorio se encuentra el proyecto, en el que se incluye el entorno virtual con el que se ha trabajado en  local (carpeta venv)
  sin embargo, en esta carpeta, se encuentra otra llamada "lib" (/venv/lib), la cual no se esta sincronizando con el repositorio aqui (pero si usa en local), debido a que  esta carpeta tiene dos modulos que pesan demasiado, por ello es recomendable, si deseas hacer funcionar esto:
+
  #### Configuración Entorno
- 
+- Antes que nada, tenemos que instalar [RASA](https://rasa.com/docs/rasa/user-guide/installation/)
+
+> Instalación RASA
+```
+$ pip3 install rasa
+```
  
  - Una vez clonado el proyecto, hay que hacer una serie de comprobaciones. Se ha usado Pycharm para el desarrollo del Bot, por ello se recomienda usarlo. Hay que asegurarnos que estamos usando la version de Phyton 3.7 y que el entorno venv esta configurado correctamente, también lo haremos cuando hayamos instalado RASA. Podemos encontras las configuraciones en : 
 
  > Abrir el proyecto con Pycharm:
 
  ```
-Pycharm > preferencias .. 
+> Pycharm > preferencias .. 
  ```
+ 
 
-- Instalar los paquetes del framework RASA :
-
-Este paso es necesario, ya que de otra maneras no podrems usar las caracteristicas de nuestro bot, como entrenarlo, definirlo o exponerlo para consuimirlo.
-
-
-reinstalara las dependencias que estan dentro de venv y asi instalara las que faltan también.
+Este paso es 'rendundante', ya que de otra maneras no podrems usar las caracteristicas de nuestro bot, como entrenarlo, definirlo o exponerlo para consuimirlo. Pero al ainstalara las dependencias que estan dentro de venv y asi instalara las que faltan también.
 
  - Una vez istalado podemos empezar a interactuar via teclado con nuestro bot ejecutando en la terminal: 
  - Ojo cuidado que en reinstalar rasa dentro de venv pesa mucho asi que hay que ver como arreglar lo de las dependencias
@@ -153,24 +155,12 @@ Por la arquitectura propuesta, se ha desarrollado una aplicación frontal  basad
 $ python3 manage.py runserver 0.0.0.0:8000
 
 ```
- 
 
 
+***Vista Previa Frontal***
+- V2.1
 
-
-
-***INSERT ANOTHER GRAPHIC HERE***
-
-[![INSERT YOUR GRAPHIC HERE](http://i.imgur.com/dt8AUb6.png)]()
-
-- Most people will glance at your `README`, *maybe* star it, and leave
-- Ergo, people should understand instantly what your project is about based on your repo
-
-> Tips
-
-- HAVE WHITE SPACE
-- MAKE IT PRETTY
-- GIFS ARE REALLY COOL
+ ![Front](documentation/005_conf.png)
 
 > GIF Tools
 
@@ -202,32 +192,7 @@ let generateProject = project => {
 
 ---
 
-## Installation
-
-- All the `code` required to get started
-- Images of what it should look like
-
-### Clone
-
 - Clone this repo to your local machine using `https://github.com/fvcproductions/SOMEREPO`
-
-### Setup
-
-- If you want more syntax highlighting, format your code like this:
-
-> update and install this package first
-
-```shell
-$ brew update
-$ brew install fvcproductions
-```
-
-> now install npm and bower packages
-
-```shell
-$ npm install
-$ bower install
-```
 
 - For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
 
@@ -241,6 +206,26 @@ $ bower install
 - Going into more detail on code and technologies used
 - I utilized this nifty <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown Cheatsheet</a> for this sample `README`.
 
+## Team
+> Contributors/People
+
+| <a href="https://www.linkedin.com/in/jhosef-anderson-cardich-palma-74765788/" target="_blank">***Jhosef A. Cardich Palma***</a> | 
+| :---: |
+| [![cat](documentation/cat.gif?s=150)](https://www.linkedin.com/in/jhosef-anderson-cardich-palma-74765788/)   |
+| Twitter at <a href="http://twitter.com/jhosefcardich" target="_blank">`@JhosefCardich`</a>| 
+|Instagram at <a href="http://instagram.com/arts_hot" target="_blank">`@ART S-HOT`</a>
+
+
+
+---
+
+
+## Support
+
+Reach out to me at one of the following places!
+
+
+- 
 ---
 
 ## Contributing
@@ -263,21 +248,13 @@ $ bower install
 
 - 🔃 Create a new pull request using <a href="https://github.com/joanaz/HireDot2/compare/" target="_blank">`https://github.com/joanaz/HireDot2/compare/`</a>.
 
----
 
-## Team
 
-> Or Contributors/People
 
-| <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> | <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> | <a href="http://fvcproductions.com" target="_blank">**FVCproductions**</a> |
-| :---: |:---:| :---:|
-| [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com)    | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) | [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com)  |
-| <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> |
 
-- You can just grab their GitHub profile image URL
-- You should probably resize their picture using `?s=200` at the end of the image URL.
 
 ---
+
 
 ## FAQ
 
@@ -285,26 +262,6 @@ $ bower install
     - No problem! Just do this.
 
 ---
-
-## Support
-
-Reach out to me at one of the following places!
-
-- Website at <a href="http://fvcproductions.com" target="_blank">`fvcproductions.com`</a>
-- Twitter at <a href="http://twitter.com/fvcproductions" target="_blank">`@fvcproductions`</a>
-- Insert more social links here.
-
----
-
-## Donations (Optional)
-
-- You could include a <a href="https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png" target="_blank">Gratipay</a> link as well.
-
-[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/fvcproductions/)
-
-
----
-
 ## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
