@@ -37,7 +37,7 @@
 ## Historias de los flujos del juego 
 ######################################################
 
-## 1A camino para empezar el dialogo del programa 
+## 1A camino para empezar el dialogo del con el asistente 
 * greet
   - utter_greet
 * mood_great
@@ -177,14 +177,14 @@
 ######################################################
 
 
-
-
-
 ## say goodbye
 * goodbye
   - utter_goodbye
   
 
+######################################################
+## Otras Historarias
+######################################################
 ## bot challenge
 * bot_challenge
   - utter_iamabot

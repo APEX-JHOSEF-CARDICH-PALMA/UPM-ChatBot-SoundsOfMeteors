@@ -1,14 +1,16 @@
 ## intent:greet
+- que tal?
+- Hola Skyboy !
+- Hey, estas ahi ?
+- hola 
+- Buenas 
 - hey
 - hello
 - hi
 - good morning
 - good evening
 - hey there
-- hola 
-- Buenas 
-- que tal
-- Hey, estas ahi ?
+
 
 
 ## intent:mi_nombre
@@ -18,6 +20,10 @@
 - me llamo [jhosef]{"entity":"name","value":"jhosef"}
 - me llamo [Juan]{"entity":"name","value":"Juan"}
 - me llamo [Raquel]{"entity":"name","value":"Raquel"}
+- me llamo [Paco]{"entity":"name","value":"paco"}
+- me llamo [Isabel]{"entity":"name","value":"isabel"}
+- me llamo [maria]{"entity":"name","value":"Maria"}
+- me llamo [pedro]{"entity":"name","value":"Pedro"}
 
 
 
@@ -28,6 +34,11 @@
 - see you later
 - Hata Luego, espero verte pronto!
 - vamos a descansar
+- no quiero mas
+- parar
+- ya me canse
+- me voy 
+- cerrar
 
 
 ## intent:affirm
