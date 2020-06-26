@@ -132,6 +132,7 @@
 ## intent:bot_clasificar
 - clasificar
 - deseo clasificar
+- quiero clasificar
 
 ## intent:bot_entrenar
 - quiero entrenar
@@ -143,7 +144,12 @@
 
 ## intent:tipo_sonidos
 - es de tipo [1]{"entity":"respuesta","value":"1"}
+- creo que es tipo [1]{"entity":"respuesta","value":"1"}
 - es de tipo [2]{"entity":"respuesta","value":"2"}
+- creo que es [2]{"entity":"respuesta","value":"2"}
 - es de tipo [3]{"entity":"respuesta","value":"3"}
+- creo que es [3]{"entity":"respuesta","value":"3"}
 - es de tipo [4]{"entity":"respuesta","value":"4"}
+- creo que es [4]{"entity":"respuesta","value":"4"}
 - es de tipo [5]{"entity":"respuesta","value":"5"}
+- creo que es [5]{"entity":"respuesta","value":"5"}

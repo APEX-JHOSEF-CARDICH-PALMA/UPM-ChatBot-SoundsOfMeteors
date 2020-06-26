@@ -1,0 +1,191 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+         <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <meta name="theme-color" content="#fafafa">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+       <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+
+    <style>
+        div {
+            margin: 70px;
+            border: 1px solid #af3f02;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="alert alert-success" role="alert">
+    <h1 class="alert-heading"> Sonidos del Cielo ( Sounds of Meteors )</h1>
+</div>
+
+<div class="alert alert-success" role="alert">
+Para las acciones predefinidas podemos crear acciones de la siguiente manera:
+action_facility_search
+
+//Domain
+
+  utter_entrenar:
+  - text: "Perfecto! Vamos a entrena"
+
+  utter_msg_audio:
+  - text: "Escucha el siguiente audio"
+
+  utter_desc_audio:
+  - text: "El audios que acabas de escuchar es de un meteorito en concreto"
+
+  utter_clasificar:
+  - text: "Muy bien! vamos a clasificar "
+
+  utter_otro_nivel:
+  - text: "Sigamos con el siguiente nivel !"
+
+//Stories
+
+## entrenamiento
+* bot_entrenar
+  - utter_entrenar
+  - utter_msg_audio
+  - utter_desc_audio
+
+## clasificacion
+*  bot_clasificar
+   - utter_clasificar
+   - utter_msg_audio
+   - utter_otro_nivel
+
+</div>
+
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">ChatBot para la clasificacion de los sonidos del cielo</h4>
+        <p>
+            <ol>
+                    <li>
+                        [EN] This chatbot is being developed by Jhosef A. Cardich Palma as part of his Final Degree Project (TFG) for the Polytechnic University of Madrid. It is an application that offers an entertaining experience to classify sounds from the sky, with the idea of bringing the general public closer to science.
+                    </li>
+                    <li>
+                        [ES] Este proyecto esta siendo desarrollado por Jhosef A. Cardich Palma como el trabajo de fin de carrera en la UPM. El trabajo tiene como objetivo la realizacion de un bot para el publico infanti, el cual podra clasificar los sonidos del cielo interanctuando con el asistente virtual.
+                    </li>
+
+            </ol>
+        </p>
+
+        <table>
+
+            <tr>
+                <th>*CAMPO*</th>
+                <th>*DATATYPE*</th>
+                <th>*COMENTARIO*</th>
+            </tr>
+            <tr>
+                <th>Nº EXPEDIENTE</th>
+                <th>TEXT</th>
+                <th>
+                    Código del accidente. Los registros que tienen el mismo número de parte corresponden se trata del mismo accidente donde hay varios afectados. </th>
+            </tr>
+            <tr>
+                <th>FECHA</th>
+                <th>TEXT</th>
+                <th>Fecha en formato dd/mm/aaaa</th>
+            </tr>
+            <tr>
+                <th>HORA</th>
+                <th>TEXT</th>
+                <th>La hora se establece en rangos horarios de 1 hora</th>
+            </tr>
+            <tr>
+                <th>CALLE</th>
+                <th>TEXT</th>
+                <th>
+                    calle 1 ‐ calle 2 (cruce) o una calle<br>
+                    Como se puede ver, hay algunos casos que son cruces y aparecen dos calles separadas con un "/"
+                </th>
+            </tr>
+            <tr>
+                <th>NÚMERO</th>
+                <th>TEXT</th>
+                <th>Número de la calle, cuando tiene sentido<br>
+                    Como dice, el número puede no aparecer, apareciendo en su lugar un "-"
+                </th>
+            </tr>
+            <tr>
+                <th>DISTRITO</th>
+                <th>TEXT</th>
+                <th>Nombre del distrito</th>
+            </tr>
+            <tr>
+                <th>TIPO ACCIDENTE</th>
+                <th>TEXT</th>
+                <th>
+                    Tipo de accidente descrito en la documentación del dataset. Hay 8 tipos de accidentes.
+                </th>
+            </tr>
+            <tr>
+                <th>ESTADO METEREOLÓGICO</th>
+                <th>TEXT</th>
+                <th>Condiciones ambientales que se dan en el momento del siniestro. A veces, es desconocida.</th>
+            </tr>
+            <tr>
+                <th>TIPO VEHÍCULO</th>
+                <th>TEXT</th>
+                <th>Tipo de vehículo afectado. Siempre es una Bicicleta</th>
+            </tr>
+            <tr>
+                <th>TIPO PERSONA</th>
+                <th>TEXT</th>
+                <th>Puede ser: Conductor, peatón, testigo o viajero. 516 son Conductor, 45 Peatón, 0 testigo, 0 viajero.</th>
+            </tr>
+            <tr>
+                <th>RANGO DE EDAD</th>
+                <th>TEXT</th>
+                <th>Tramo de edad de la persona afectada. Se trata de un texto con el rango de edad escrito con el patrón "DE XX A XX AÑOS", donde XX son las edades.</th>
+            </tr>
+            <tr>
+                <th>SEXO</th>
+                <th>TEXT</th>
+                <th>Puede ser: Hombre, mujer o no asignado. 419 Hombre, 137 Mujer.</th>
+            </tr>
+            <tr>
+                <th>LESIVIDAD</th>
+                <th>TEXT</th>
+                <th>Se trata de un código numérico en el que cada uno viene explicado en la documentación del dataset</th>
+            </tr>
+
+        </table>
+
+        <hr>
+    </div>
+
+
+
+</body>
+
+</html>

@@ -29,6 +29,7 @@ actions:
   - action_med_over_sample
   - action_short_over_sample
   - action_check_sound
+  - action_save_clasificacion
 
 entities:
   - name
@@ -37,15 +38,19 @@ entities:
 slots:
     name:
       type: text
-      initial_value: "amigo"
+      initial_value: "amig@"
+
+    sonido_actual:
+      type: text
+      initial_value: "0"
 
     respuesta:
       type: text
       initial_value: "0"
 
-    sonido_actual:
-      type: text
-      initial_value: "0"
+
+
+
 
 responses:
   utter_opciones:
@@ -79,16 +84,21 @@ responses:
   - text: "Perfecto! Vamos a entrenar"
 
   utter_presentando:
-  - text: "Te voy a ir presentando varios sonidos y me tendras que decir de que tipos son"
+  - text: "Te voy a ir presentando varios sonidos"
+
+  utter_metienes:
+  - text: "y me tendras que decir de que tipos son"
 
   utter_dime_de_que:
-  - text: "{name}, dime de que tipo es el sonido?"
+  - text: "{name}, dime de que tipo crees que es el sonido?"
+  - text: "{name}, de que tipo  es el sonido?"
+
 
   utter_clasificar:
   - text: "Muy bien! vamos a clasificar "
 
   utter_msg_audio:
-  - text: "Escucha el siguiente audio"
+  - text: "Escucha el siguiente audio:"
 
   utter_otro_nivel:
   - text: "Sigamos con el siguiente nivel !"

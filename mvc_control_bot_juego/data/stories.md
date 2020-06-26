@@ -132,6 +132,7 @@
 * bot_entrenar
   - utter_entrenar
   - utter_presentando
+  - utter_metienes
   - utter_msg_audio
   - action_underdense_sample
   - utter_dime_de_que 
@@ -164,6 +165,8 @@
 * bot_clasificar
   - utter_clasificar
   - action_classifying
+  - utter_dime_de_que
+  - action_save_clasificacion
 
 
 

@@ -60,7 +60,7 @@ class ActionHelloWorld(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         player_name = tracker.get_slot('name')
-        dispatcher.utter_message(text="Bienvenido {} si deseas  podemos aprender, entrenar o clasificar sonidos del cielo. ¿Qué te gustaría hacer?".format(player_name))
+        dispatcher.utter_message(text="Bienvenid@ {}, si deseas  podemos aprender, entrenar o clasificar sonidos del cielo. ¿Qué te gustaría hacer?".format(player_name))
 
 
         return []
@@ -244,14 +244,6 @@ class ActionClassifying(Action):
         # sonido, entonces se vuelve a enviar mendiante un slot. Ese slot llamado clasificando_sonido
         # tendra la uri que pondremos aqui, rellenandola desde aqui
 
-        # todo tambien hay que hacer otra clase , una acccion que una vez que se el usuario haya dado una repsuesta
-        # que se rellene en un slot_respuesta, se ejecutara una accion en la que se extraera la respueta.
-        # dicha respuesta se almacenara, en el archivo de clasificaciones, se aumentara en uno el numero de clasificaciones
-        # del sonido en la lista (la primera linea ) yy junto con la clasificacion se podra el nombre.
-
-        # todo ademas de ello se podria crear una clase que para que cuando el usuario pidiera el tipo de clasificacion
-        # que se la ha ido dando, esta accion accediera al archivo e hiciera una media de todas las clasifiacaciones
-        # para que asi hiciera una consulta de los datos (mejor hacer la mediana ...)
 
         # tambien se puede hacer una clase en la que se busque quienes son los que mas clasifican, apareciendo de menor a mayot
         # en un listado
@@ -260,7 +252,35 @@ class ActionClassifying(Action):
         return []
 
 
+#--------------------------------------------------------------------------------------------------
 
+class ActionSaveClasificacion(Action):
+    """
+        todo tambien hay que hacer otra clase , una acccion que una vez que se el usuario haya dado una repsuesta
+     que se rellene en un slot_respuesta, se ejecutara una accion en la que se extraera la respueta.
+    dicha respuesta se almacenara, en el archivo de clasificaciones, se aumentara en uno el numero de clasificaciones
+    del sonido en la lista (la primera linea ) yy junto con la clasificacion se podra el nombre.
+
+        # todo ademas de ello se podria crear una clase que para que cuando el usuario pidiera el tipo de clasificacion
+        # que se la ha ido dando, esta accion accediera al archivo e hiciera una media de todas las clasifiacaciones
+        # para que asi hiciera una consulta de los datos (mejor hacer la mediana ...)
+
+    """
+
+    def name(self) -> Text:
+        return "action_save_clasificacion"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        #dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
+         #                                 "meteoro overdense corto ")
+       # absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
+       # absPath ='sounds/sonidos_entrenamiento/meteor5_short overdense.wav'
+        dispatcher.utter_message(json_message= {"soundUri":'sounds/sonidos_entrenamiento/meteor5_short overdense.wav'})
+    #    dispatcher.utter_message(text=absPath)
+
+        return [SlotSet("sonido_actual","5")]
 ##......................................................
 ## Recoge el nombre del usuario
 ##......................................................

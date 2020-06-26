@@ -7,7 +7,7 @@
 
 
 - [Introduccíon](#Introducción)
-- [About](#Acerca )
+- [About](#About )
 - [Arquitectura](#Arquitectura)
 - [Instalación](#instalación)
 - [Features](#features)
@@ -40,7 +40,7 @@
 ## Arquitectura
 
 Para la implementación general se ha seguido un patrón ***Modelo Vista Controlador (MVC)*** , para definir los componentes y sus interacciones. 
-Let's take a look how this project architecture looks like:
+Let's take a look how this architecture looks like:
 
  ***Organización MVC del Proyecto***
 
