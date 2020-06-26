@@ -64,5 +64,13 @@ background-color: #f2f2f2;
   margin-bottom: 10px;
 }
 #sound-control{
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  padding-left:10px;
+  padding-top: 10px;
+  padding-bottom:10px;
+  padding-right: 10px;
+  background-color: #83d700;
+  width: 50%;
 }
