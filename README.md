@@ -44,7 +44,7 @@ Let's take a look how this architecture looks like:
 
  ***Organización MVC del Proyecto***
 
- ![Project  Architecture](documentation/architecture.jpg)
+ ![Project  Architecture](documentation/architecture.png)
 
 
 ## Instalación
