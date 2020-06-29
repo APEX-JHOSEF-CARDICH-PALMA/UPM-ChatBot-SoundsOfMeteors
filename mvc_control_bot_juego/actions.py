@@ -8,8 +8,8 @@
 # This is a simple example for a custom action which utters "Hello World!"
 import time
 import random
-import shutil
 import os
+from math import floor
 from pathlib import Path
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
@@ -276,6 +276,8 @@ class ActionSaveClasificacion(Action):
         player_name = tracker.get_slot('name')
         uri_textoClasificacion= tracker.get_slot('txtclasificacionactual')
 
+        print("Los datos que han llegado son:  " + player_resp + " " + player_name + " " + uri_textoClasificacion)
+
         #----------------------- GUARDANNDO RESP
         ##Aqui leemos tod el dfichero y lo pasamos a un array
 
@@ -288,7 +290,7 @@ class ActionSaveClasificacion(Action):
                 # lines  # ['This is the first line.\n', 'This is the second line.\n']
             numClassi = int(lines[0])
             numClassi += 1
-            lines[0] = str(numClassi)
+            lines[0] = str(numClassi)+"\n"
             # lines  # ["This is the line that's replaced.\n", 'This is the second line.\n']
             f.close()
 
@@ -302,35 +304,48 @@ class ActionSaveClasificacion(Action):
 
             # ----------------------- AGREGAR CLASIFICACION (nombre de usuario y clasificacion)
 
-            with open(uri_textoClasificacion, "w") as f:
+            with open(uri_textoClasificacion, "a") as f:
                 newClasificaction = player_resp+" "+player_name+"\n"
                 f.write(newClasificaction)
+                print("Agregada la clasificacion.."+ newClasificaction)
             f.close()
 
 
             # ----------------------- INFORMACION SOBRE LA CLASIFICACION DE UN ARCHIVO
             acumulado = 0
 
-            with open(pathsTxtSounfFileClasification) as f:  # Si existe solo lo abrimos en modo lectura
-                first_line = f.readline().rstrip()  # Leemos la primera linea y ademas quitamos el salto de linea
-                denominador = int(first_line)
 
+            with open(pathsTxtSounfFileClasification) as f:  # Si existe solo lo abrimos en modo lectura
+              #  first_line = f.readline().rstrip()  # Leemos la primera linea y ademas quitamos el salto de linea
+                #denominador = int(first_line)
+                #msg = str(denominador)
+                #print("Numero de clasificacion leido del un archivo: " + msg)
 
                 with open(uri_textoClasificacion) as f:
                     allLines = f.readlines()
+
+                    first_line=allLines[0].rstrip()
+                    denominador = int(first_line)
+                    msg = str(denominador)
+                    print("Numero de clasificacion leido del un archivo: " + msg)
+
                 for linea in range(1, len(allLines)):
                     classificationPerUserX = allLines[linea][0] #El carcater de la  primera linea de cada clasificacion
                     acumulado = acumulado + int(classificationPerUserX) # los pasamos a int
 
                 f.close()
 
+                msg = str(acumulado)
+                print(" El valor acumulado de todas las clasificaciones es: " + msg )
                 #----- CALCULAMOS LA MEDIA
                 division_media = acumulado/denominador
-                media = math.floor(int(division_media))
-
-                dispatcher.utter_message(text=" INFO: Las clasificaciones anteriores dicen que este sonido podria ser de tipo " + media)
+                msg = str(division_media)
+                print("la division es : " + msg )
+                media = floor(int(division_media))
+                msg = str(media)
+                dispatcher.utter_message(text=" INFO: Las clasificaciones anteriores dicen que este sonido podria ser de tipo " + msg)
         else:
-            dispatcher.utter_message(text= player_resp+ "no es una clasificacion valida")
+            dispatcher.utter_message(text= player_resp+ " no es una clasificacion valida, tu respuesta no ha sido guardada...")
 
             SlotSet("txtclasificacionactual"," ")
         return [SlotSet("sonido_actual","0")]
@@ -396,7 +411,7 @@ class SoundListing(object):
                      #Sino, lo creamos
                     txt =open (pathsTxtSounfFileClasification,"w")
                     print('creado el archivo: '+txt.name )
-                    txt.write('0') #Escribimos un cero en la primera linea, asi se entiende que han habido 0 clasificaciones para ese sonido
+                    txt.write('0'+"\n") #Escribimos un cero en la primera linea, asi se entiende que han habido 0 clasificaciones para ese sonido
                     listadoNumClasificaciones.append(0)
                     txt.close()
                     listaDePathsDeArchivosTextoClassAux.append(pathsTxtSounfFileClasification)  ## Aqui metemos to do el path de cada archivo encontrado
