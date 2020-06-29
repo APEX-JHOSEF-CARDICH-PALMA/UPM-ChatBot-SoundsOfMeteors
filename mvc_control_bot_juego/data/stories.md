@@ -13,7 +13,8 @@
   - utter_cheer_up
   - utter_did_that_help
 * deny
-  - utter_goodbye
+  - utter_question_a
+  - utter_if_you_want
 
 ## SAD PATH 1
 * greet
@@ -132,44 +133,128 @@
   - utter_entrenar
   - utter_presentando
   - utter_metienes
-  - utter_msg_audio
   - action_underdense_sample
   - utter_dime_de_que 
 * tipo_sonidos 
   - action_check_sound
-  - utter_msg_audio
   - action_m_sample
   - utter_dime_de_que 
 * tipo_sonidos 
   - action_check_sound
-  - utter_msg_audio
   - action_long_over_sample
   - utter_dime_de_que 
 * tipo_sonidos 
   - action_check_sound
-  - utter_msg_audio
   - action_med_over_sample
   - utter_dime_de_que 
 * tipo_sonidos 
   - action_check_sound
-  - utter_msg_audio
   - action_short_over_sample
   - utter_dime_de_que 
 * tipo_sonidos
   - action_check_sound
+  - utter_sido_entrenamiento
   - utter_if_you_want
   - utter_question_b
+  
 #------------------------------------------------------------
+## 2C - CLASIFICACION
+##-----------------------------------------------------------
+  
+#------------------------------------------------------------
+## clasificacion
+* bot_clasificar
+  - utter_clasificar
+  - action_classifying
+  - utter_dime_de_que
+* tipo_sonidos
+  - action_save_clasificacion
+  - utter_quieres_otros_sonido
+
+* dame_sonido
+  - utter_clasificar
+  - action_classifying
+  - utter_dime_de_que
+* tipo_sonidos
+  - action_save_clasificacion
+  - utter_quieres_otros_sonido
+ 
+ 
+# CLASIFICAR NEGADO ------------------------------------------------------------
+  
 ## 2A - clasificacion
 * bot_clasificar
   - utter_clasificar
   - action_classifying
   - utter_dime_de_que
+* tipo_sonidos
   - action_save_clasificacion
+  - utter_quieres_otros_sonido
+* deny
+  - utter_if_you_want
+  - utter_question_b
+
+
+
+#  CLASIFICAR AYUDA NIVEL 1 ------------------------------------------------------------
+
+* ayuda_clasificar
+  - utter_ayuda_clasificar
+  - utter_ayuda_tipo_meteoro
+  - utter_ayuda_tienes_dudas
+* deny
+  - utter_quieres_seguir_class
+* affirm
+  - utter_clasificar
+  - action_classifying
+  - utter_dime_de_que
+* tipo_sonidos
+  - action_save_clasificacion
+  - utter_quieres_otros_sonido
+  - utter_question_b
+
+
+# AYUDA CLASIFICAR SIN DUDA ------------------------------------------------------------
+
+* ayuda_clasificar
+  - utter_ayuda_clasificar
+  - utter_ayuda_tipo_meteoro
+  - utter_ayuda_tienes_dudas
+* deny
+  - utter_quieres_seguir_class
+* affirm
+  - utter_clasificar
+  - action_classifying
+  - utter_dime_de_que
+* tipo_sonidos
+  - action_save_clasificacion
+  - utter_quieres_otros_sonido
+  - utter_question_b
+
+
+# CLASIFICAR AYUDA con SONIDO O VOLVER A ENTRENAR ------------------------------------------------------------
+
+* ayuda_clasificar
+  - utter_ayuda_clasificar
+  - utter_ayuda_tipo_meteoro
+  - utter_ayuda_tienes_dudas
+* affirm
+  - utter_ayuda_sonido_meteoro
+ 
+######################################################
+## Historias de ayuda 
+######################################################
+
+* ayuda_general
+  - utter_ayuda_general_intro
+  - utter_opciones
+  - utter_question_b
 
 
 
 
+
+ 
 
 ######################################################
 ## Historias de despedida 

@@ -273,19 +273,42 @@ class ActionSaveClasificacion(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        #dispatcher.utter_message(text="El sonido que escucharas a continuacion es de un "
-         #                                 "meteoro overdense corto ")
-       # absPath = os.path.abspath('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
-       # absPath ='sounds/sonidos_entrenamiento/meteor5_short overdense.wav'
-        dispatcher.utter_message(json_message= {"soundUri":'sounds/sonidos_entrenamiento/meteor5_short overdense.wav'})
-    #    dispatcher.utter_message(text=absPath)
 
-        return [SlotSet("sonido_actual","5")]
-##......................................................
-## Recoge el nombre del usuario
-##......................................................
+        player_resp = tracker.get_slot('respuesta')
+        #procesar respuesta
+        dispatcher.utter_message(text="muy bien, tu respuesta ha sido guardada ->" + player_resp)
+
+        dispatcher.utter_message(text="La media de clasificacion para este sonido, dice que es de tipo .. >" + player_resp)
+
+        SlotSet("respuesta","0")
+        return [SlotSet("sonido_actual","0")]
 
 
+#--------------------------------------------------------------------------------------------------
+
+class ActionGivmeStaticsSound(Action):
+    """
+    Esta clase calcula la media de las clasificaciones de un sonido
+    hay que coger el numero de clasificaicones para sumar todas las clasificaciones posibles
+
+
+    """
+
+    def name(self) -> Text:
+        return "action_giveme_statics"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        player_resp = tracker.get_slot('respuesta')
+        #procesar respuesta
+        dispatcher.utter_message(text="muy bien, tu respuesta ha sido guardada ->" + player_resp)
+
+        dispatcher.utter_message(text="La media de clasificacion para este sonido, dice que es de tipo .. >" + player_resp)
+
+        SlotSet("respuesta","0")
+        return [SlotSet("sonido_actual","0")]
 
 
 class SoundListing(object):
@@ -382,7 +405,7 @@ class ActionSoundCheck(Action):
         s_currently = self.switch(int(currently_sound))
 
         if player_resp == currently_sound:
-            text="Muy bien! Has acertado el sonido es un " + s_player
+            text="Muy bien! Has acertado el sonido es un meteoro tipo " + s_player
         elif player_resp == '':
             text = " Es una opcion incorrecta"
         else:

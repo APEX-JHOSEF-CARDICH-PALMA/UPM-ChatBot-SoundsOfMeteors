@@ -17,6 +17,9 @@ intents:
   - med_over_sample
   - short_over_sample
   - tipo_sonidos
+  - ayuda_clasificar
+  - dame_sonido
+  - ayuda_general
 
 actions:
   - action_hola_mundo
@@ -53,8 +56,7 @@ slots:
 
 
 responses:
-  utter_opciones:
-  - text: "Las opaciones son las siguientes "
+
   utter_greet:
   - text: "Hola! que tal te va todo? "
   - text: "Buenas, como va todo ?"
@@ -73,15 +75,40 @@ responses:
   - text: "Que guay ! empecemos con energia!"
 
   utter_if_you_want:
-  - text: "Podemos aprender, entenar o clasificar sonidos del cielo."
+  - text: "Ahora podemos aprender, entenar o clasificar sonidos del cielo."
 
 
+  utter_ayuda_general_intro:
+  - text: " {name}, no te preocupes, estas son las opciones: "
+  - text: " {name}, estas son las cosas que puedes hacer: "
+  - text: " {name}, conmigo puedes hacer las siguientes cosas: "
+
+  utter_opciones:
+  - text: "Si deseas aprender, solo di 'quiero aprender',de la misma forma, para entrenar o clasificar."
+
+  utter_sabes_como_son_meteoros:
+  - text: "sabes como son los meteoros?"
+
+  utter_ayuda_sonido_meteoro:
+  - text: "Si quieres puedo reproducir el sonido de cualquier meteoro, para un meteoro tipo M di ': ¿Como suena un meteoro tipo M?'. De la misma forma para cualquier tipo. O si deseas podemos entrenar, para ello solo di 'quiero entrenar' "
+
+
+  utter_ayuda_tipo_meteoro:
+  - text: "Si crees que es un meteoro tipo underdense solo di es de 'tipo 1', si es de tipo M entonces di 'es de tipo 2', para overdense largo 'tipo 3', para overdense medio 'tipo 4  y para overdense corto di 'tipo 5'"
+
+  utter_ayuda_tienes_dudas:
+  - text: "Todavia tienes dudas?"
+  - text: "Aun te cuesta reconocer los sonidos?"
+  - text: "te parece un poco dificil?"
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa, pero mi padre es Jhosef Cardich Palma, él fue quien me dio la personalidad.. "
 
   utter_entrenar:
   - text: "Perfecto! Vamos a entrenar"
+
+  utter_ayuda_entrenar:
+  - text: "Si deseas podemos entrenar un poco mas"
 
   utter_presentando:
   - text: "Te voy a ir presentando varios sonidos"
@@ -90,25 +117,39 @@ responses:
   - text: "y me tendras que decir de que tipos son"
 
   utter_dime_de_que:
-  - text: "{name}, dime de que tipo crees que es el sonido?"
-  - text: "{name}, de que tipo  es el sonido?"
+  - text: "{name}, Tipo 1, 2,3,4 o 5?"
+
+  utter_sido_entrenamiento:
+  - text: "{name} este ha sido todo el entrenamiento."
+
+
+
 
 
   utter_clasificar:
   - text: "Muy bien! vamos a clasificar "
 
-  utter_msg_audio:
+  utter_ayuda_clasificar:
+  - text: " {name}, para clasificar tienes que escuchar el sonido y despues decir de que tipo se trata"
+
+  utter_msg_sig_sonido:
   - text: "Escucha el siguiente audio:"
 
   utter_otro_nivel:
-  - text: "Sigamos con el siguiente nivel !"
+  - text: "Sigamos con el siguiente sonido !"
+
+  utter_quieres_otros_sonido:
+  - text: "si quieres clasificar el siguiente sonido di 'dame otro sonido'"
+  utter_quieres_seguir_class:
+  - text: "quieres seguir clasificando ?"
+
+
 
   utter_aprender:
   - text: Vamos a aprender los sonidos!
 
-  utter_pause_sound:
-  - text: play_pause_sound
-
+  utter_end_aprendizaje:
+  - text: "Recuerda, tenemos 5 tipos sonidos para clasificar: Underdense o tipo 1 , M o tipo 2, overdense largo tipo 3, overdense medio o tipo 4  y por ultimo, overdense corto o tipo 5"
 
 
   utter_question_a:
@@ -126,6 +167,8 @@ responses:
   - text: "¿ Desea seguir  ?"
   - text: "¿Quieres continuar?"
 
+
+
   utter_goodbye:
   - text: "Nos vemos pronto, cuidate {name}! "
   - text: "Hasta pronto {name}"
@@ -137,24 +180,24 @@ responses:
 
 
   utter_underdense_sample:
-  - text: "es un meteoro underdense o tipo 1 "
+  - text: "es un meteoro tipo underdense o tipo 1 "
 
   utter_m_sample:
-  - text: "es un meteoro tipo M o 2 "
+  - text: "es un meteoro tipo M o  tipo 2 "
 
   utter_over_larg:
-  - text: "es un meteoro overdense largo o tipo 3"
+  - text: "es un meteoro tipo overdense largo o tipo 3"
 
   utter_over_med:
-  - text: "es un meteoro overdense medio o tipo 4"
+  - text: "es un meteoro tipo overdense medio o tipo 4"
 
   utter_over_short:
-  - text: "es un meteoro overdense corto o tipo 5"
+  - text: "es un meteoro tipo overdense corto o tipo 5"
 
 
 
 
 
 session_config:
-  session_expiration_time: 1
+  session_expiration_time: 60
   carry_over_slots_to_new_session: false

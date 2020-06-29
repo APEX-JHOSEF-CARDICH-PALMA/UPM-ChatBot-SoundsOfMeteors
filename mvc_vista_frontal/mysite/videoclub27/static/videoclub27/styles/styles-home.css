@@ -14,8 +14,8 @@ audio{
   padding-top: 5px;
   padding-bottom:5px;
   padding-left: 20px;
-background-color: #f2f2f2;
-  height: 600px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 500px;
   width: 50%;
 
   align-content: center;
@@ -74,3 +74,18 @@ background-color: #f2f2f2;
   background-color: #83d700;
   width: 50%;
 }
+
+#back{
+  /*background: url("/static/videoclub27/images/background.jpg") 100% 0 no-repeat fixed;*/
+  color:white;
+  height: 1000px;
+  padding: 100px 0 0 0;
+}
+img{
+  height: 100%;
+  width: 100%;
+}
+.jumbotron{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+

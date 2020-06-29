@@ -39,6 +39,7 @@
 - ya me canse
 - me voy 
 - cerrar
+- nada
 
 
 ## intent:affirm
@@ -116,26 +117,31 @@
 
 ## intent:underdense_sample
 -  suena una underdense ?
+- suena un meteoro tipo 1?
 - recuerdame como suena una underdense
 - quiero escuchar una underdense 
 
 ## intent:m_sample
--  suena una m ?
+- ¿Como suena un meteoro tipo M?
+- suena un meteoro tipo 2?
 - recuerdame como suena una m
 - quiero escuchar una m 
 
 ## intent:long_over_sample
 -  suena una overdense larga  ?
+- suena un meteoro tipo 3?
 -  como suena una overdense larga 
 -  escuchar una overdense larga
 
 ## intent:med_over_sample
 -  suena una overdense mediana  ?
+- suena un meteoro tipo 4?
 -  como suena una overdense mediana 
 -  escuchar una overdense mediana  
 
 ## intent:short_over_sample
 -  suena una overdense corta  ?
+- suena un meteoro tipo 5?
 -  como suena una overdense corta 
 -  escuchar una overdense corta  
 
@@ -144,6 +150,21 @@
 - clasificar
 - deseo clasificar
 - quiero clasificar
+- vamos a clasificar
+
+## intent:dame_sonido
+- dame otro sonido para clasificar 
+- seguir clasificando
+- quisiero seguir clasificando 
+- dame otro sonido
+
+
+## intent:ayuda_clasificar
+- como se clasifica
+- dime como se clasifica
+- ayuda para clasificar 
+- me dices como clasificar  
+
 
 ## intent:bot_entrenar
 - quiero entrenar
@@ -155,12 +176,30 @@
 
 ## intent:tipo_sonidos
 - es de tipo [1]{"entity":"respuesta","value":"1"}
+- tipo [1]{"entity":"respuesta","value":"1"}
 - creo que es tipo [1]{"entity":"respuesta","value":"1"}
 - es de tipo [2]{"entity":"respuesta","value":"2"}
-- creo que es [2]{"entity":"respuesta","value":"2"}
+- creo que  tipo [2]{"entity":"respuesta","value":"2"}
+- tipo [2]{"entity":"respuesta","value":"2"}
 - es de tipo [3]{"entity":"respuesta","value":"3"}
-- creo que es [3]{"entity":"respuesta","value":"3"}
+- creo que es tipo [3]{"entity":"respuesta","value":"3"}
+- es tipo [3]{"entity":"respuesta","value":"3"}
 - es de tipo [4]{"entity":"respuesta","value":"4"}
-- creo que es [4]{"entity":"respuesta","value":"4"}
+- creo que es tipo [4]{"entity":"respuesta","value":"4"}
+- es tipo [4]{"entity":"respuesta","value":"4"}
 - es de tipo [5]{"entity":"respuesta","value":"5"}
-- creo que es [5]{"entity":"respuesta","value":"5"}
+- tipo [5]{"entity":"respuesta","value":"5"}
+- creo que es tipo [5]{"entity":"respuesta","value":"5"}
+
+
+## intent:ayuda_general
+- necesito ayuda
+- dime las opciones 
+- cuales son las opciones
+- repiteme las opciones
+- ayuda 
+- help
+- repite las opciones
+- me dices las opciones del sistema
+- que opciones tengo
+
