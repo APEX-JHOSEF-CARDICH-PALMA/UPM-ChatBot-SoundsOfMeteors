@@ -116,34 +116,34 @@
 - deseo aprender
 
 ## intent:underdense_sample
--  suena una underdense ?
+- suena una underdense ?
 - suena un meteoro tipo 1?
 - recuerdame como suena una underdense
-- quiero escuchar una underdense 
+- quiero escuchar unentra underdense 
 
 ## intent:m_sample
-- ¿Como suena un meteoro tipo M?
+- Como suena un meteoro tipo M ?
 - suena un meteoro tipo 2?
 - recuerdame como suena una m
 - quiero escuchar una m 
 
 ## intent:long_over_sample
--  suena una overdense larga  ?
+- suena una overdense larga  ?
 - suena un meteoro tipo 3?
--  como suena una overdense larga 
--  escuchar una overdense larga
+- como suena una overdense larga 
+- escuchar una overdense larga
 
 ## intent:med_over_sample
--  suena una overdense mediana  ?
+- suena una overdense mediana  ?
 - suena un meteoro tipo 4?
--  como suena una overdense mediana 
--  escuchar una overdense mediana  
+- como suena una overdense mediana 
+- escuchar una overdense mediana  
 
 ## intent:short_over_sample
--  suena una overdense corta  ?
+- suena una overdense corta  ?
 - suena un meteoro tipo 5?
--  como suena una overdense corta 
--  escuchar una overdense corta  
+- como suena una overdense corta 
+- escuchar una overdense corta  
 
 
 ## intent:bot_clasificar
@@ -163,7 +163,10 @@
 - como se clasifica
 - dime como se clasifica
 - ayuda para clasificar 
-- me dices como clasificar  
+- me dices como clasificar 
+- no lo se
+- no puedo
+- no se 
 
 
 ## intent:bot_entrenar
