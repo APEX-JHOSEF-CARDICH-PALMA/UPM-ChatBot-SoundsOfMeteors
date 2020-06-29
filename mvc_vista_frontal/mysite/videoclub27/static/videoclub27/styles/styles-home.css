@@ -76,7 +76,7 @@ audio{
 }
 
 #back{
-  /*background: url("/static/videoclub27/images/background.jpg") 100% 0 no-repeat fixed;*/
+  background: url("/static/videoclub27/images/background.jpg") 100% 0 no-repeat fixed;
   color:white;
   height: 1000px;
   padding: 100px 0 0 0;

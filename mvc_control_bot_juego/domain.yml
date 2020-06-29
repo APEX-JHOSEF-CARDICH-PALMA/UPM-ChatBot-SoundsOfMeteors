@@ -51,6 +51,9 @@ slots:
       type: text
       initial_value: "0"
 
+    txtclasificacionactual:
+      type: text
+      initial_value: " "
 
 
 
@@ -117,7 +120,7 @@ responses:
   - text: "y me tendras que decir de que tipos son"
 
   utter_dime_de_que:
-  - text: "{name}, Tipo 1, 2,3,4 o 5?"
+  - text: "{name}, Dime de que tipo crees que es 1, 2,3,4 o 5?"
 
   utter_sido_entrenamiento:
   - text: "{name} este ha sido todo el entrenamiento."
@@ -132,7 +135,7 @@ responses:
   utter_ayuda_clasificar:
   - text: " {name}, para clasificar tienes que escuchar el sonido y despues decir de que tipo se trata"
 
-  utter_msg_sig_sonido:
+  utter_escucha_sig_audio:
   - text: "Escucha el siguiente audio:"
 
   utter_otro_nivel:

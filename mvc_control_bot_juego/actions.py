@@ -8,14 +8,14 @@
 # This is a simple example for a custom action which utters "Hello World!"
 import time
 import random
+import shutil
 import os
 from pathlib import Path
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
-import requests
-from pygame import mixer  # Load the popular external library
+from pygame import mixer, math  # Load the popular external library
 
 
 ##########################################################
@@ -236,9 +236,8 @@ class ActionClassifying(Action):
          soundIndex = random.choice(sonidosAClasificar.counterClasificationList)
 
         dispatcher.utter_message(text="Dime, ¿De que tipo crees que es el siguiente sonido ? ")
-       # dispatcher.utter_message(text= sonidosAClasificar.soundsList[soundIndex])
-        dispatcher.utter_message(json_message= {"soundUri":sonidosAClasificar.soundsList[soundIndex]})
 
+        dispatcher.utter_message(json_message= {"soundUri":sonidosAClasificar.soundsList[soundIndex]})
         #todo este le envia la uri del sonido, cuando el sonido esta en el bot  y despues en el frontal
         # el bot le tiene que preguntar ¿dime de que que tipo es el sonido? , si el niño le pide que le repita el
         # sonido, entonces se vuelve a enviar mendiante un slot. Ese slot llamado clasificando_sonido
@@ -248,8 +247,7 @@ class ActionClassifying(Action):
         # tambien se puede hacer una clase en la que se busque quienes son los que mas clasifican, apareciendo de menor a mayot
         # en un listado
 
-        # No he ehcho PUSH
-        return []
+        return [SlotSet("txtclasificacionactual",sonidosAClasificar.listaDePathsDeArchivosTextoClass[soundIndex])]
 
 
 #--------------------------------------------------------------------------------------------------
@@ -275,12 +273,66 @@ class ActionSaveClasificacion(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         player_resp = tracker.get_slot('respuesta')
-        #procesar respuesta
-        dispatcher.utter_message(text="muy bien, tu respuesta ha sido guardada ->" + player_resp)
+        player_name = tracker.get_slot('name')
+        uri_textoClasificacion= tracker.get_slot('txtclasificacionactual')
 
-        dispatcher.utter_message(text="La media de clasificacion para este sonido, dice que es de tipo .. >" + player_resp)
+        #----------------------- GUARDANNDO RESP
+        ##Aqui leemos tod el dfichero y lo pasamos a un array
 
-        SlotSet("respuesta","0")
+        if int(player_resp) <= 5 and  int(player_resp) >= 1 :
+
+            dispatcher.utter_message(text="El numero de clasificaciones esta siendo actualizado. ->"  + player_resp)
+
+            with open(uri_textoClasificacion) as f:
+                lines = f.readlines()
+                # lines  # ['This is the first line.\n', 'This is the second line.\n']
+            numClassi = int(lines[0])
+            numClassi += 1
+            lines[0] = str(numClassi)
+            # lines  # ["This is the line that's replaced.\n", 'This is the second line.\n']
+            f.close()
+
+            with open(uri_textoClasificacion, "w") as f: # Escriebiendo el fichero otra vez ..
+                f.writelines(lines)
+            f.close()
+            msg = str(numClassi)
+
+            print("Num de clasificaciones VAL - ACT: " + msg  + "en  " + uri_textoClasificacion)
+            dispatcher.utter_message(text="actualizado el num de clasificaciones  VAL - ACT : "+ msg + "en  " + uri_textoClasificacion)
+
+            # ----------------------- AGREGAR CLASIFICACION (nombre de usuario y clasificacion)
+
+            with open(uri_textoClasificacion, "w") as f:
+                newClasificaction = player_resp+" "+player_name+"\n"
+                f.write(newClasificaction)
+            f.close()
+
+
+            # ----------------------- INFORMACION SOBRE LA CLASIFICACION DE UN ARCHIVO
+            acumulado = 0
+
+            with open(pathsTxtSounfFileClasification) as f:  # Si existe solo lo abrimos en modo lectura
+                first_line = f.readline().rstrip()  # Leemos la primera linea y ademas quitamos el salto de linea
+                denominador = int(first_line)
+
+
+                with open(uri_textoClasificacion) as f:
+                    allLines = f.readlines()
+                for linea in range(1, len(allLines)):
+                    classificationPerUserX = allLines[linea][0] #El carcater de la  primera linea de cada clasificacion
+                    acumulado = acumulado + int(classificationPerUserX) # los pasamos a int
+
+                f.close()
+
+                #----- CALCULAMOS LA MEDIA
+                division_media = acumulado/denominador
+                media = math.floor(int(division_media))
+
+                dispatcher.utter_message(text=" INFO: Las clasificaciones anteriores dicen que este sonido podria ser de tipo " + media)
+        else:
+            dispatcher.utter_message(text= player_resp+ "no es una clasificacion valida")
+
+            SlotSet("txtclasificacionactual"," ")
         return [SlotSet("sonido_actual","0")]
 
 
@@ -301,13 +353,6 @@ class ActionGivmeStaticsSound(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        player_resp = tracker.get_slot('respuesta')
-        #procesar respuesta
-        dispatcher.utter_message(text="muy bien, tu respuesta ha sido guardada ->" + player_resp)
-
-        dispatcher.utter_message(text="La media de clasificacion para este sonido, dice que es de tipo .. >" + player_resp)
-
-        SlotSet("respuesta","0")
         return [SlotSet("sonido_actual","0")]
 
 
@@ -322,11 +367,13 @@ class SoundListing(object):
     soundsList = [] #Lista de sonidos (su localizacion), dento de un directorio
     counterClasificationList = [] # En cada posicion de esta lista se almacena la cantidad de veces que ha sido clasificado  cada sonido
     soundListFilePath = '' #Archivo txt, con los nombres, linea a linea, de todos los sonidos de un directorio
+    listaDePathsDeArchivosTextoClass = [] #Aqui estan todos los path de todos los ficheros de texto asociado a las clasificaciones
     #Constructor de la lista de sonidos
     def __init__(self,path_origen,path_destino):
 
         listAux = []
         listadoNumClasificaciones = []
+        listaDePathsDeArchivosTextoClassAux = []
         file_path = os.path.join(path_destino, "soundList.txt" )
 
         if not os.path.isdir(path_destino): #Si el directorio no existe, entonces se crea
@@ -340,7 +387,6 @@ class SoundListing(object):
 
              if '.wav' in file:
                  listAux.append(os.path.join(r, file)) ## Aqui metemos to do el path de cada archivo encontrado
-                 soundListFile.write(file+'\n') ## Escribe todos los nombres de todos los ficheros en un archivo en el path destino
                  soundFileName= Path(file).stem ## Obtiene el nombre de un fichero sin su extension
                  global pathsTxtSounfFileClasification
                  pathsTxtSounfFileClasification = os.path.join(path_destino,soundFileName+'.txt')
@@ -353,15 +399,20 @@ class SoundListing(object):
                     txt.write('0') #Escribimos un cero en la primera linea, asi se entiende que han habido 0 clasificaciones para ese sonido
                     listadoNumClasificaciones.append(0)
                     txt.close()
+                    listaDePathsDeArchivosTextoClassAux.append(pathsTxtSounfFileClasification)  ## Aqui metemos to do el path de cada archivo encontrado
+                    soundListFile.write(pathsTxtSounfFileClasification)  ## Escribe todos los nombres de todos los ficheros en un archivo en el path destino
+
                  else:
                      with open(pathsTxtSounfFileClasification) as f: # Si existe solo lo abrimos en modo lectura
                          first_line = f.readline().rstrip()   #Leemos la primera linea y ademas quitamos el salto de linea
                      listadoNumClasificaciones.append(first_line) #ahora ponemos lo que hay en la primera linea dentro de la lista de numero de clasificaciones
-
+                     listaDePathsDeArchivosTextoClassAux.append(pathsTxtSounfFileClasification)  ## Aqui metemos to do el path de cada archivo encontrado
+                     soundListFile.write(pathsTxtSounfFileClasification+"\n")  ## Escribe todos los nombres de todos los ficheros en un archivo en el path destino
 
         soundListFile.close()
         self.soundsList = listAux # aqui tenemos la lista de sonidos a ser usados para una session de juego
         self.counterClasificationList = list(map(int, listadoNumClasificaciones)) #Convertimos la lista a Int
+        self.listaDePathsDeArchivosTextoClass=listaDePathsDeArchivosTextoClassAux
         self.soundListFilePath=file_path
 
 
@@ -409,7 +460,7 @@ class ActionSoundCheck(Action):
         elif player_resp == '':
             text = " Es una opcion incorrecta"
         else:
-         text = "oh! el sonido no es un " + s_player + ", la respuesta  es: " + s_currently
+         text = "Oh! El sonido no es un " + s_player + ", este meteoro es de tipo: " + s_currently
         dispatcher.utter_message(text)
         return []
 
