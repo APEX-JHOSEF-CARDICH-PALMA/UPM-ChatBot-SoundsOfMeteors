@@ -1,11 +1,4 @@
-10
+3
 1 Raquel
 2 Jhosef
 5 Jhosef
-4 Jhosef
-2 Juan
-3 Juan
-4 Juan
-3 Pedro
-3 amig@
-1 amig@

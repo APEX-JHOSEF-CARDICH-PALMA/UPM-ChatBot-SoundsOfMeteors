@@ -21,13 +21,15 @@
 ---
 
  
- ## Introducción
-- 
+## Introducción
+
+-
+
 ---
  ## About
 
-  - 🇬🇧 This chatbot is being developed by [Jhosef A. Cardich Palma](https://www.linkedin.com/in/jhosef-anderson-cardich-palma-74765788/) as part of his Final Degree Project (TFG) for the [Polytechnic University of Madrid ](https://www.upm.es/) as a part of its Computer Science Degree on the [Higher Technical School of Computer Engineers](https://www.fi.upm.es/). The  ***Sky Sounds Chatbot Classifier***  is an application that offers an entertaining experience to classify sounds from the sky,  bringing the general public closer to science.This application is part of
-[Star counter](http://www.contadoresdeestrellas.org/), it's a big project with the collaboration of  ***Instituto Astrofísico de Canarias***. 
+  - 🇬🇧 This chatbot is being developed by [Jhosef A. Cardich Palma](https://www.linkedin.com/in/jhosef-anderson-cardich-palma-74765788/) as part of his Final Degree Project (TFG) for the [Polytechnic University of Madrid ](https://www.upm.es/) as a part of its Computer Science Degree on the [Higher Technical School of Computer Engineers](https://www.fi.upm.es/). The  ***Sky Sounds Chatbot Classifier***  is an application that offers an entertaining experience to classify sounds of the sky,  bringing the general public closer to science. This application is part of
+[Star counter](http://www.contadoresdeestrellas.org/), a large project in collaboration with the ***Instituto Astrofísico de Canarias***. 
 
 ---
   - 🇪🇸 Este proyecto esta siendo desarrollado por [Jhosef A. Cardich Palma](https://www.linkedin.com/in/jhosef-anderson-cardich-palma-74765788/) como el trabajo de fin de carrera en la [Universidad Politécnica de Madrid](https://www.upm.es/) para el grado de Ingeniería Informática en la [Escuela Técnica Superior de Ingenieros Informáticos](https://www.fi.upm.es/). La aplicación ***Chatbot Clasificador de Sonidos del Cielo*** tiene como objetivo la realizacion de un bot para el publico infanti, el cual podra clasificar los sonidos del cielo interactuando con el asistente virtual.  Esta aplición forma parte de un proyecto mas grande. [Contadores de Estrellas](http://www.contadoresdeestrellas.org/) es un proyecto realizado en colaboración con el ***Instituto Astrofísico de Canarias***.
