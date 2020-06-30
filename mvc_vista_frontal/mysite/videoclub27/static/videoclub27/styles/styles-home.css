@@ -14,6 +14,8 @@ body {background: url("/static/videoclub27/images/background.jpg") 100% 0 no-rep
 
 
 /* CUADRO CHAT: que contiene todo el chat*/
+
+
 #chat-container{
   border-radius: 25px;
   padding-right:20px;
