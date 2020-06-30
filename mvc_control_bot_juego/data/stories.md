@@ -168,6 +168,11 @@
 
 
 
+#------------------------------------------------------------
+## 2C - CLASIFICACION
+##-----------------------------------------------------------
+  
+#------------------------------------------------------------
 ## clasificacion
 * bot_clasificar
   - utter_clasificar
@@ -184,8 +189,7 @@
 * tipo_sonidos
   - action_save_clasificacion
   - utter_quieres_otros_sonido
- 
- 
+  
 # CLASIFICAR NEGADO ------------------------------------------------------------
   
 ## 2A - clasificacion

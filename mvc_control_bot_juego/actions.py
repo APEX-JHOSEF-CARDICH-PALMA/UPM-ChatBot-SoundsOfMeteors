@@ -9,7 +9,7 @@
 import time
 import random
 import os
-from math import floor
+from math import floor, ceil
 from pathlib import Path
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
@@ -239,11 +239,16 @@ class ActionClassifying(Action):
         #Buscamos el elemento que tenga 0 clasificaciones, si no existe cogemos cualquier de manera aleatorea
         try:
          soundIndex = sonidosAClasificar.counterClasificationList.index(0)
+         msg = str(soundIndex)
+         print("Encontrado por 0 - POS : " + msg)
         except ValueError:
-         soundIndex = random.choice(sonidosAClasificar.counterClasificationList)
+         soundIndex = sonidosAClasificar.counterClasificationList.index(random.choice(sonidosAClasificar.counterClasificationList))
+
+         msg = str(soundIndex)
+         print("Encontrado por random - POS : " + msg)
 
         dispatcher.utter_message(text="Dime, ¿De que tipo crees que es el siguiente sonido ? ")
-
+        print("El sonido escogido en el back es: " + sonidosAClasificar.soundsList[soundIndex] )
         dispatcher.utter_message(json_message= {"soundUri":sonidosAClasificar.soundsList[soundIndex]})
         #todo este le envia la uri del sonido, cuando el sonido esta en el bot  y despues en el frontal
         # el bot le tiene que preguntar ¿dime de que que tipo es el sonido? , si el niño le pide que le repita el
@@ -350,9 +355,15 @@ class ActionSaveClasificacion(Action):
                 division_media = acumulado/denominador
                 msg = str(division_media)
                 print("la division es : " + msg )
-                media = floor(int(division_media))
-                msg = str(media)
-                dispatcher.utter_message(text= player_name+" las clasificaciones anteriores dicen que este sonido podria ser de tipo " + msg)
+                media_arriba = floor(int(division_media))
+                media_abajo  = ceil(int(division_media))
+
+                if media_arriba != media_abajo:
+                    msg = str(media_abajo) + " o de tipo " + str(media_arriba)
+                else:
+                    msg = str(media_arriba)
+
+                dispatcher.utter_message(text= player_name+" las clasificaciones anteriores dicen que este sonido podria ser de tipo " + msg +".")
         else:
             dispatcher.utter_message(text= player_resp+ " no es una clasificacion valida, tu respuesta no ha sido guardada, el sonido quedará pendiente de clasificación :) .")
 
