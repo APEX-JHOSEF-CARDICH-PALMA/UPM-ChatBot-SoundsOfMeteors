@@ -180,11 +180,32 @@ Gracias a esta interfaz el usuario podrá ser capaz de interactuar con el asiste
 
 La aplicación permite la clasificación de sonidos del cielo y cuenta con las siguientes funcionalidades:
 
-####Aprendizaje 
+#### Aprendizaje 
 - La aplicación brinda la posibilidad de poder aprender los sonidos del cielo a través del asistente conversacional.
+> Para aprender el sistema responde a los siguientes comandos: 
+
+````
+- quiero aprender 
+- que tipos de sonidos existen 
+- dime todos los sonidos
+- deseo aprender
+
+````
 #### Entrenamiento 
 - Existe un nivel de entrenamiento para que el usuario pueda aprender los sonidos. En este se presentan sonidos del aprendizaje
-pero sin información sobre su tipo.
+pero sin información sobre su tipo. El sistema se encargara de evaluar la respuesta del usuario para devolver feedback sobre que 
+tan acertada ha sido su respuesta. 
+
+````
+- quiero entrenar
+- entrenar 
+- deseo practicar
+- entrenamiento
+- deseo entrenarme 
+- quiero practicar
+
+````
+
 #### Clasificación
 - Es el nivel mas interesante, aqui el sistema presenta diversos tipos de sonidos que el usuario tendra que clasificar. 
 Cuando el usuario clasifique un sonido, su clasificación se guarda junto con la de otros usuarios. Así cuando un sonido 
@@ -192,7 +213,49 @@ es clasificado, al usuario se le muestra el valor promedio de clasificación que
 - Cuando un usuario escucha un sonido y no puede intuir de que se trata, entonce el usuario podra pedir ayuda. 
 En las opciones de ayuda el usuario puede elegir reproducir cualquiera de los 5 sonidos existentes. Si el usuario aun 
 se ve con dudas, puede volver a entrenar o a aprender.
+> Para clasificar el sistema se activa con cualquiera de los siguientes comandos
 
+````
+- quiero entrenar
+- entrenar 
+- deseo practicar
+- entrenamiento
+- deseo entrenarme 
+- quiero practicar
+````
+
+### Ayuda para Clasificar 
+Si el usario no se siente seguro o necesita ayuda para renocer un sonido durante una 
+clasifcación, entonces el sistema puede ayudarle mostrandole algun ejemplo o repetir 
+la sesión de entrenamiento.
+>Para mostrar las opciones de ayuda durante la clasificación el sistema responde a los 
+siguientes comandos:
+````
+- como se clasifica ?
+- como clasificar ?
+- dime como se clasifica
+- ayuda para clasificar 
+- me dices como clasificar 
+- no se clasificar
+- no puedo clasificar
+- no se clasificar
+
+````
+
+### Tipos de Sonidos
+El usuario podra reproducir un tipo de sonido en cualquier momento para recordar. Para ello se usa cualquier de los siguientes comandos. 
+(Ejemplo para un overdense corto):
+> Reproducir un Sonido
+````
+- recuerdame como suena un overdense corto 
+- recuerdame como suena un meteoro tipo overdense corto 
+- como suena un meteoro overdense corto 
+- como suena un meteoro tipo overdense corto 
+- Como suena un meteoro tipo overdense corto  ?
+- quiero escuchar un overdense corto 
+- reproduce un meteoro overdense corto 
+- reproduce un tipo overdense corto 
+````
 
 ## Dependencias
 
