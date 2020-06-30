@@ -126,6 +126,7 @@
   - utter_if_you_want
   - utter_question_b
 
+
 #------------------------------------------------------------
 ## 2B - entrenamiento
 ##-----------------------------------------------------------
@@ -139,41 +140,34 @@
   - utter_dime_de_que 
 * tipo_sonidos 
   - action_check_sound
-  - utter_otro_nivel
   - utter_escucha_sig_audio
   - action_m_sample
   - utter_dime_de_que 
 * tipo_sonidos 
   - action_check_sound
-  - utter_otro_nivel
   - utter_escucha_sig_audio
   - action_long_over_sample
   - utter_dime_de_que 
 * tipo_sonidos 
   - action_check_sound
-  - utter_otro_nivel
   - utter_escucha_sig_audio
   - action_med_over_sample
   - utter_dime_de_que 
 * tipo_sonidos 
   - action_check_sound
-  - utter_otro_nivel
   - utter_escucha_sig_audio
   - action_short_over_sample
   - utter_dime_de_que 
 * tipo_sonidos
   - action_check_sound
-  - utter_otro_nivel
-  - utter_escucha_sig_audio
-  - utter_sido_entrenamiento
   - utter_if_you_want
   - utter_question_b
   
-#------------------------------------------------------------
-## 2C - CLASIFICACION
-##-----------------------------------------------------------
-  
-#------------------------------------------------------------
+
+
+
+
+
 ## clasificacion
 * bot_clasificar
   - utter_clasificar

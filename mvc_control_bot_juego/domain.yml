@@ -82,27 +82,27 @@ responses:
 
 
   utter_ayuda_general_intro:
-  - text: " {name}, no te preocupes, estas son las opciones: "
-  - text: " {name}, estas son las cosas que puedes hacer: "
-  - text: " {name}, conmigo puedes hacer las siguientes cosas: "
+  - text: " {name} estas son las opciones: "
+  - text: " {name} estas son las cosas que puedes hacer: "
+  - text: " {name} podemos hacer las siguientes cosas: "
 
   utter_opciones:
-  - text: "Si deseas aprender, solo di 'quiero aprender',de la misma forma, para entrenar o clasificar."
+  - text: "Si deseas aprender, solo di 'quiero aprender', de la misma forma para entrenar o clasificar."
 
   utter_sabes_como_son_meteoros:
   - text: "sabes como son los meteoros?"
 
   utter_ayuda_sonido_meteoro:
-  - text: "Si quieres puedo reproducir el sonido de cualquier meteoro, para un meteoro tipo M di ': ¿Como suena un meteoro tipo M?'. De la misma forma para cualquier tipo. O si deseas podemos entrenar, para ello solo di 'quiero entrenar' "
+  - text: "Si quieres puedo reproducir el sonido de cualquier meteoro. Para un meteoro tipo M di ': Como suena un meteoro tipo M?'. De la misma forma para cualquier tipo. O si deseas podemos entrenar, para ello solo di 'quiero entrenar' "
 
 
   utter_ayuda_tipo_meteoro:
-  - text: "Si crees que es un meteoro tipo underdense solo di es de 'tipo 1', si es de tipo M entonces di 'es de tipo 2', para overdense largo 'tipo 3', para overdense medio 'tipo 4  y para overdense corto di 'tipo 5'"
+  - text: "Si crees que es un meteoro tipo underdense solo di es de 'clase 1', si es de tipo M entonces di 'es de clase 2', para overdense largo 'clase 3', para overdense medio 'clase 4  y para overdense corto di 'clase 5'."
 
   utter_ayuda_tienes_dudas:
   - text: "Todavia tienes dudas?"
   - text: "Aun te cuesta reconocer los sonidos?"
-  - text: "te parece un poco dificil?"
+  - text: "Quieres mas ayuda para reconocer los sonidos ?"
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa, pero mi padre es Jhosef Cardich Palma, él fue quien me dio la personalidad.. "
@@ -120,7 +120,7 @@ responses:
   - text: "y me tendras que decir de que tipos son"
 
   utter_dime_de_que:
-  - text: "{name}, Dime de que tipo crees que es 1, 2,3,4 o 5?"
+  - text: "{name}  de que clase crees que es 1, 2,3,4 o 5?"
 
   utter_sido_entrenamiento:
   - text: "{name} este ha sido todo el entrenamiento."
@@ -133,7 +133,7 @@ responses:
   - text: "Muy bien! vamos a clasificar "
 
   utter_ayuda_clasificar:
-  - text: " {name}, para clasificar tienes que escuchar el sonido y despues decir de que tipo se trata"
+  - text: " {name}, para clasificar tienes que escuchar el sonido y despues decir de que clase de meteoro se trata"
 
   utter_escucha_sig_audio:
   - text: "Escucha el siguiente audio:"
@@ -142,7 +142,7 @@ responses:
   - text: "Sigamos con el siguiente sonido !"
 
   utter_quieres_otros_sonido:
-  - text: "si quieres clasificar el siguiente sonido di 'dame otro sonido'"
+  - text: "Si quieres clasificar el siguiente sonido di 'dame otro sonido'"
   utter_quieres_seguir_class:
   - text: "quieres seguir clasificando ?"
 
@@ -167,14 +167,14 @@ responses:
 
 
   utter_question_c:
-  - text: "¿ Desea seguir  ?"
-  - text: "¿Quieres continuar?"
+  - text: "{name} seguimos con el siguiente  ?"
+  - text: "{name}  vamos a por el siguiente?"
 
 
 
   utter_goodbye:
   - text: "Nos vemos pronto, cuidate {name}! "
-  - text: "Hasta pronto {name}"
+  - text: "Hasta pronto {name}!"
 
 
 
@@ -183,24 +183,24 @@ responses:
 
 
   utter_underdense_sample:
-  - text: "es un meteoro tipo underdense o tipo 1 "
+  - text: "Es un meteoro tipo underdense o tipo 1 "
 
   utter_m_sample:
-  - text: "es un meteoro tipo M o  tipo 2 "
+  - text: "Es un meteoro tipo M o  tipo 2 "
 
   utter_over_larg:
-  - text: "es un meteoro tipo overdense largo o tipo 3"
+  - text: "Es un meteoro tipo overdense largo o tipo 3"
 
   utter_over_med:
-  - text: "es un meteoro tipo overdense medio o tipo 4"
+  - text: "Es un meteoro tipo overdense medio o tipo 4"
 
   utter_over_short:
-  - text: "es un meteoro tipo overdense corto o tipo 5"
+  - text: "Es un meteoro tipo overdense corto o tipo 5"
 
 
 
 
 
 session_config:
-  session_expiration_time: 60
+  session_expiration_time: 10
   carry_over_slots_to_new_session: false

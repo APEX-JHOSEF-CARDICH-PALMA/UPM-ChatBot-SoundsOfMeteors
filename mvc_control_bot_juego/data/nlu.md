@@ -116,34 +116,65 @@
 - deseo aprender
 
 ## intent:underdense_sample
-- suena una underdense ?
-- suena un meteoro tipo 1?
-- recuerdame como suena una underdense
-- quiero escuchar unentra underdense 
+- recuerdame como suena un underdense
+- recuerdame como suena un meteoro tipo  underdense
+
+
+- como suena un meteoro underdense
+- como suena un meteoro tipo underdense 
+- Como suena un meteoro tipo underdense ?
+- quiero escuchar un underdense
+- quiero escuchar un meteoro tipo underdense
+- quiero escuchar un tipo underdense
+- reproduce un meteoro underdense  
+- reproduce un  underdense  
 
 ## intent:m_sample
+- recuerdame como suena un m
+- recuerdame como suena un meteoro tipo  m
+- como suena un meteoro m 
+- como suena un meteoro tipo m 
 - Como suena un meteoro tipo M ?
-- suena un meteoro tipo 2?
-- recuerdame como suena una m
-- quiero escuchar una m 
+- quiero escuchar un m 
+- quiero escuchar un meteoro tipo m
+- reproduce un meteoro m  
+- reproduce un tipo m
+
+
 
 ## intent:long_over_sample
-- suena una overdense larga  ?
-- suena un meteoro tipo 3?
-- como suena una overdense larga 
-- escuchar una overdense larga
+- recuerdame como suena un overdense largo 
+- recuerdame como suena un meteoro tipo overdense largo
+- como suena un meteoro overdense larga  
+- como suena un meteoro tipo overdense laro  
+- Como suena un meteoro tipo overdense largo ?
+- quiero escuchar un overdense largo
+- quiero escuchar un meteoro overdense largo
+- reproduce un meteoro overdense largo  
+- reproduce un tipo overdense largo 
+
 
 ## intent:med_over_sample
-- suena una overdense mediana  ?
-- suena un meteoro tipo 4?
-- como suena una overdense mediana 
-- escuchar una overdense mediana  
+- recuerdame como suena un overdense medio 
+- recuerdame como suena un meteoro tipo  overdense medio 
+- como suena un meteoro overdense medio 
+- como suena un meteoro tipo overdense medio 
+- Como suena un meteoro tipo overdense medio  ?
+- quiero escuchar un meteoro overdense medio 
+- reproduce un meteoro overdense medio 
+- reproduce un meteoro overdense medio 
+- reproduce un tipo overdense medio 
+
 
 ## intent:short_over_sample
-- suena una overdense corta  ?
-- suena un meteoro tipo 5?
-- como suena una overdense corta 
-- escuchar una overdense corta  
+- recuerdame como suena un overdense corto 
+- recuerdame como suena un meteoro tipo overdense corto 
+- como suena un meteoro overdense corto 
+- como suena un meteoro tipo overdense corto 
+- Como suena un meteoro tipo overdense corto  ?
+- quiero escuchar un overdense corto 
+- reproduce un meteoro overdense corto 
+- reproduce un tipo overdense corto 
 
 
 ## intent:bot_clasificar
@@ -160,13 +191,14 @@
 
 
 ## intent:ayuda_clasificar
-- como se clasifica
+- como se clasifica ?
+- como clasificar ?
 - dime como se clasifica
 - ayuda para clasificar 
 - me dices como clasificar 
-- no lo se
-- no puedo
-- no se 
+- no se clasificar
+- no puedo clasificar
+- no se clasificar
 
 
 ## intent:bot_entrenar
@@ -178,21 +210,16 @@
 - quiero practicar
 
 ## intent:tipo_sonidos
-- es de tipo [1]{"entity":"respuesta","value":"1"}
-- tipo [1]{"entity":"respuesta","value":"1"}
-- creo que es tipo [1]{"entity":"respuesta","value":"1"}
-- es de tipo [2]{"entity":"respuesta","value":"2"}
-- creo que  tipo [2]{"entity":"respuesta","value":"2"}
-- tipo [2]{"entity":"respuesta","value":"2"}
-- es de tipo [3]{"entity":"respuesta","value":"3"}
-- creo que es tipo [3]{"entity":"respuesta","value":"3"}
-- es tipo [3]{"entity":"respuesta","value":"3"}
-- es de tipo [4]{"entity":"respuesta","value":"4"}
-- creo que es tipo [4]{"entity":"respuesta","value":"4"}
-- es tipo [4]{"entity":"respuesta","value":"4"}
-- es de tipo [5]{"entity":"respuesta","value":"5"}
-- tipo [5]{"entity":"respuesta","value":"5"}
-- creo que es tipo [5]{"entity":"respuesta","value":"5"}
+- la respuesta es  clase [1]{"entity":"respuesta","value":"1"}
+- creo que es clase [1]{"entity":"respuesta","value":"1"}
+- es de clase [2]{"entity":"respuesta","value":"2"}
+- creo que  es clase [2]{"entity":"respuesta","value":"2"}
+- es de clase [3]{"entity":"respuesta","value":"3"}
+- creo que es clase [3]{"entity":"respuesta","value":"3"}
+- es de clase [4]{"entity":"respuesta","value":"4"}
+- creo que es clase [4]{"entity":"respuesta","value":"4"}
+- es de clase [5]{"entity":"respuesta","value":"5"}
+- creo que es clase [5]{"entity":"respuesta","value":"5"}
 
 
 ## intent:ayuda_general

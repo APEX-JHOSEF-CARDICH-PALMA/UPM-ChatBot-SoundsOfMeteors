@@ -88,6 +88,7 @@ class ActionUnderdenseSelector(Action):
         #absPath=os.path.abspath("sounds/sonidos_entrenamiento/meteor1_underdense.wav")
        # absPath="sounds/sonidos_entrenamiento/meteor1_underdense.wav"
        # dispatcher.utter_message(absPath)
+        print(" Underdense Selector")
         dispatcher.utter_message(json_message={"soundUri": 'sounds/sonidos_entrenamiento/meteor1_underdense.wav'})
         return [SlotSet("sonido_actual","1")]
 
@@ -121,6 +122,8 @@ class ActionMSelector(Action):
             #mixer.init()
             #mixer.music.load('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
             #mixer.music.play()
+
+            print(" M Selector")
             return [SlotSet("sonido_actual","2")]
 
 #--------------------------------------------------------------------------------------------------
@@ -148,6 +151,8 @@ class ActionLongOverdenseSelector(Action):
         # mixer.init()
         # mixer.music.load('sounds/sonidos_entrenamiento/meteor5_short overdense.wav')
         # mixer.music.play()
+
+        print(" Long overdense Selector")
         return [SlotSet("sonido_actual","3")]
 #--------------------------------------------------------------------------------------------------
 
@@ -173,6 +178,8 @@ class ActionMediumOverdenseSelector(Action):
         #absPath ='sounds/sonidos_entrenamiento/meteor4_medium_overdense.wav'
         dispatcher.utter_message(json_message={"soundUri":'sounds/sonidos_entrenamiento/meteor4_medium_overdense.wav'})
         #dispatcher.utter_message(text=absPath)
+
+        print(" med overdense Selector")
         return [SlotSet("sonido_actual","4")]
 
 #--------------------------------------------------------------------------------------------------
@@ -198,7 +205,7 @@ class ActionShortOverdenseSelector(Action):
        # absPath ='sounds/sonidos_entrenamiento/meteor5_short overdense.wav'
         dispatcher.utter_message(json_message= {"soundUri":'sounds/sonidos_entrenamiento/meteor5_short overdense.wav'})
     #    dispatcher.utter_message(text=absPath)
-
+        print(" SHORT overdense Selector")
         return [SlotSet("sonido_actual","5")]
 #--------------------------------------------------------------------------------------------------
 
@@ -283,7 +290,9 @@ class ActionSaveClasificacion(Action):
 
         if int(player_resp) <= 5 and  int(player_resp) >= 1 :
 
-            dispatcher.utter_message(text="El numero de clasificaciones esta siendo actualizado. ->"  + player_resp)
+            soundFileName = Path(uri_textoClasificacion).stem
+            dispatcher.utter_message(text="Vale ! has dicho que es tipo "  + player_resp + ",  estoy guardando tu clasificación "
+                                                                                           "para el sonido " + soundFileName + ".")
 
             with open(uri_textoClasificacion) as f:
                 lines = f.readlines()
@@ -300,7 +309,7 @@ class ActionSaveClasificacion(Action):
             msg = str(numClassi)
 
             print("Num de clasificaciones VAL - ACT: " + msg  + "en  " + uri_textoClasificacion)
-            dispatcher.utter_message(text="actualizado el num de clasificaciones  VAL - ACT : "+ msg + "en  " + uri_textoClasificacion)
+            #dispatcher.utter_message(text="actualizado el num de clasificaciones  VAL - ACT : "+ msg + "en  " + uri_textoClasificacion)
 
             # ----------------------- AGREGAR CLASIFICACION (nombre de usuario y clasificacion)
 
@@ -343,9 +352,9 @@ class ActionSaveClasificacion(Action):
                 print("la division es : " + msg )
                 media = floor(int(division_media))
                 msg = str(media)
-                dispatcher.utter_message(text=" INFO: Las clasificaciones anteriores dicen que este sonido podria ser de tipo " + msg)
+                dispatcher.utter_message(text= player_name+" las clasificaciones anteriores dicen que este sonido podria ser de tipo " + msg)
         else:
-            dispatcher.utter_message(text= player_resp+ " no es una clasificacion valida, tu respuesta no ha sido guardada...")
+            dispatcher.utter_message(text= player_resp+ " no es una clasificacion valida, tu respuesta no ha sido guardada, el sonido quedará pendiente de clasificación :) .")
 
             SlotSet("txtclasificacionactual"," ")
         return [SlotSet("sonido_actual","0")]
@@ -473,11 +482,11 @@ class ActionSoundCheck(Action):
         if player_resp == currently_sound:
             text="Muy bien! Has acertado el sonido es un meteoro tipo " + s_player
         elif player_resp == '':
-            text = " Es una opcion incorrecta"
+            text = " e s una opcion incorrecta"
         else:
          text = "Oh! El sonido no es un " + s_player + ", este meteoro es de tipo: " + s_currently
         dispatcher.utter_message(text)
-        return []
+        return [SlotSet("respuesta","0")]
 
 
     def switch(self,case):
