@@ -12,19 +12,17 @@
 - [About](#About )
 - [Arquitectura](#Arquitectura)
 - [Instalación](#instalación)
-- [Features](#features)
-- [Contributing](#contributing)
+- [Características](#Características)
 - [Team](#team)
-- [FAQ](#faq)
-- [Support](#support)
-- [License](#license)
+
+
 
 
 ---
 
  
  ## Introducción
- - En este proyecto emplearemos python como tecnologia para poder desarrollar el bot, el cual seguira una implementacion marcada por RASA . 
+- 
 ---
  ## About
 
@@ -41,7 +39,7 @@
  ---
 ## Arquitectura
 
-Para la implementación general se ha seguido un patrón ***Modelo Vista Controlador (MVC)*** , para definir los componentes y sus interacciones. 
+La implementación general se ha seguido un patrón ***Modelo Vista Controlador (MVC)*** , para definir los componentes y sus interacciones. 
 Let's take a look how this architecture looks like:
 
  ***Organización MVC del Proyecto***
@@ -52,7 +50,8 @@ Let's take a look how this architecture looks like:
 ## Instalación
 
  - En este repositorio se encuentra el proyecto, en el que se incluye el entorno virtual con el que se ha trabajado en  local (carpeta venv)
- sin embargo, en esta carpeta, se encuentra otra llamada "lib" (/venv/lib), la cual no se esta sincronizando con el repositorio aqui (pero si usa en local), debido a que  esta carpeta tiene dos modulos que pesan demasiado, por ello es recomendable, si deseas hacer funcionar esto:
+ sin embargo, en esta carpeta, se encuentra otra llamada "lib" (/venv/lib), la cual no se esta sincronizando con el repositorio aqui (pero si usa en local),
+  debido a que  esta carpeta tiene dos modulos que pesan demasiado, por ello es recomendable, si deseas hacer funcionar esto:
 
  #### Configuración Entorno
 - Antes que nada, tenemos que instalar [RASA](https://rasa.com/docs/rasa/user-guide/installation/)
@@ -62,20 +61,16 @@ Let's take a look how this architecture looks like:
 $ pip3 install rasa
 ```
  
- - Una vez clonado el proyecto, hay que hacer una serie de comprobaciones. Se ha usado Pycharm para el desarrollo del Bot, por ello se recomienda usarlo. Hay que asegurarnos que estamos usando la version de Phyton 3.7 y que el entorno venv esta configurado correctamente, también lo haremos cuando hayamos instalado RASA. Podemos encontras las configuraciones en : 
+ - Una vez clonado el proyecto, hay que hacer una serie de comprobaciones.
+  Se ha usado el entorno Pycharm para el desarrollo del asistente, el siguiente paso hace referencia las opciones de Pycharm.
+   Hay que asegurarnos que estamos usando la version de Phyton 3.7 y que el entorno venv esta configurado correctamente, 
+   también lo haremos cuando hayamos instalado RASA. Podemos encontrar las configuraciones en : 
 
  > Abrir el proyecto con Pycharm:
 
  ```
 > Pycharm > preferencias .. 
  ```
- 
-
-Este paso es 'rendundante', ya que de otra maneras no podrems usar las caracteristicas de nuestro bot, como entrenarlo, definirlo o exponerlo para consuimirlo. Pero al ainstalara las dependencias que estan dentro de venv y asi instalara las que faltan también.
-
- - Una vez istalado podemos empezar a interactuar via teclado con nuestro bot ejecutando en la terminal: 
- - Ojo cuidado que en reinstalar rasa dentro de venv pesa mucho asi que hay que ver como arreglar lo de las dependencias
-
 
 ### Configuración del módulo del juego y del ChatBot
 
@@ -112,20 +107,27 @@ $ rasa shell
 
 ---
 ## Integración con APPS externas
-En el caso de la integración con aplicaciones externas lo que tenemos que hacer para poner disponible los servicios de nuestro bot. Se pueden realizar pruebas sobre mensajes con el software postman. En ese caso sencillo hay que exponer los servicios de nuestro bot con el siguiente comando:
-***Consumir mediante POSTMAN***
+En el caso de la integración con aplicaciones externas lo que tenemos que hacer para exponer 
+los servicios de nuestro tenemos que seguir el siguiente comando . Se pueden realizar pruebas sobre mensajes con el software postman. 
+
 > Exponer los servicios de nuestro bot
 - Nos situamos siempre en el directorio donde hemos entrenado nuestro bot y ejecutamos:
 ```
 $ rasa run
 ```
+
+***Consumir mediante POSTMAN***
+
 - En el caso de que el servidor se haya iniciado sin nigun problema, el aspecto de la terminar es la siguiente: 
 
  ![Project  Architecture](documentation/002_conf.png)
 
 ***Consumir Mediante un Navegador - Cliente Web***
 > Exponer los servicios de nuestro bot con Extra Google Chrome
-- Si queremos consumir el modulo controlador desde un navegador, es decir, conectar el frontal con el Back del proyecto, hay que usar el siguiente comando que nos desactivara ciertas características de seguridad de RASA las cuales entran en conflicto con los navegadores. Esto se tiene que hacer al usar el frontal creado para el proyecto. Ejecutar el siguiente comando:
+- Si queremos conectar nuestro asistente desde un navegador, es decir, 
+conectar el frontal con el controlador/modelo del proyecto, hay que usar el siguiente comando que 
+ desactivara ciertas características de seguridad de RASA las cuales entran en conflicto
+ con los navegadores. Esto se tiene que hacer al usar el frontal creado para el proyecto. Ejecutar el siguiente comando:
 
 ```
 rasa run --enable-api --cors "*"
@@ -138,11 +140,14 @@ http://localhost:5005/webhooks/rest/webhook
 ```
 ---
 
-Una prueba de operación `POST` en postman, donde se ve el mensaje enviado y la contestación del Bot. Hay que notar un detalle, y es que el la ultima parte del mensaje enviado por el bot ha sido generado por la aplicación del juego definida en las acciones de RASA, las cuales estan activas porque las hemos activado previamente (Modulo Back - Lógica del Juego) .
+Una prueba de operación `POST` en postman, donde se ve el mensaje enviado y la contestación del asistente. 
+Hay que notar un detalle, y es que el la ultima parte del mensaje enviado por el bot ha sido generado por la
+ aplicación del juego definida en las acciones de RASA, las cuales están activas porque las hemos activado
+  previamente (Modulo Back - Lógica del Juego) .
 
  ![Project  Architecture](documentation/003_conf.png)
 
- En ese momento lo servicios estaran disponibles para que nuestro bot pueda llamarlos si reconoce alguno en la conversacion con el usuario.
+ En ese momento los servicios estarán disponibles para que nuestro asistente pueda llamarlos si reconoce alguno en la conversación con el usuario.
 
 ---
 ## Configuración del Frontal
@@ -160,53 +165,42 @@ $ python3 manage.py runserver 0.0.0.0:8000
 
 
 ***Vista Previa Frontal***
-- V2.1
+- V1.5
 
  ![Front](documentation/005_conf.png)
 
-> GIF Tools
+- V2.0
 
-- Use <a href="http://recordit.co/" target="_blank">**Recordit**</a> to create quicks screencasts of your desktop and export them as `GIF`s.
-- For terminal sessions, there's <a href="https://github.com/chjj/ttystudio" target="_blank">**ttystudio**</a> which also supports exporting `GIF`s.
-
-**Recordit**
-
-![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
-
-**ttystudio**
-
-![ttystudio GIF](https://raw.githubusercontent.com/chjj/ttystudio/master/img/example.gif)
+ ![Front](documentation/demo.png)
 
 
+Gracias a esta interfaz el usuario podrá ser capaz de interactuar con el asistente de manera más amigable para clasificar sonidos del cielo.
 
-## Example (Optional)
+## Características
 
-```javascript
-// code away!
+La aplicación permite la clasificación de sonidos del cielo y cuenta con las siguientes funcionalidades:
 
-let generateProject = project => {
-  let code = [];
-  for (let js = 0; js < project.length; js++) {
-    code.push(js);
-  }
-};
-```
-
----
-
-- Clone this repo to your local machine using `https://github.com/fvcproductions/SOMEREPO`
-
-- For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
-
+####Aprendizaje 
+- La aplicación brinda la posibilidad de poder aprender los sonidos del cielo a través del asistente conversacional.
+#### Entrenamiento 
+- Existe un nivel de entrenamiento para que el usuario pueda aprender los sonidos. En este se presentan sonidos del aprendizaje
+pero sin información sobre su tipo.
+#### Clasificación
+- Es el nivel mas interesante, aqui el sistema presenta diversos tipos de sonidos que el usuario tendra que clasificar. 
+Cuando el usuario clasifique un sonido, su clasificación se guarda junto con la de otros usuarios. Así cuando un sonido 
+es clasificado, al usuario se le muestra el valor promedio de clasificación que otros usuarios le han dado a ese sonido
+- Cuando un usuario escucha un sonido y no puede intuir de que se trata, entonce el usuario podra pedir ayuda. 
+En las opciones de ayuda el usuario puede elegir reproducir cualquiera de los 5 sonidos existentes. Si el usuario aun 
+se ve con dudas, puede volver a entrenar o a aprender.
 
 
-## Features
-## Usage (Optional)
-## Documentation (Optional)
-## Tests (Optional)
+## Dependencias
 
-- Going into more detail on code and technologies used
-- I utilized this nifty <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown Cheatsheet</a> for this sample `README`.
+Los siguientes paquetes de software son necesarios en el sistema para poder hacer funcional la aplicación:
+
+- [Python 3.7](https://www.python.org/)
+- [Rasa](https://rasa.com/)
+- [Django](https://www.djangoproject.com/)
 
 ## Team
 > Contributors/People
@@ -219,54 +213,9 @@ let generateProject = project => {
 
 
 
----
-
-
-## Support
-
-Reach out to me at one of the following places!
-
-
-- 
----
-
-## Contributing
-
-> To get started...
-
-### Step 1
-
-- **Option 1**
-    - 🍴 Fork this repo!
-
-- **Option 2**
-    - 👯 Clone this repo to your local machine using `https://github.com/joanaz/HireDot2.git`
-
-### Step 2
-
-- **HACK AWAY!** 🔨🔨🔨
-
-### Step 3
-
-- 🔃 Create a new pull request using <a href="https://github.com/joanaz/HireDot2/compare/" target="_blank">`https://github.com/joanaz/HireDot2/compare/`</a>.
-
-
-
 
 
 
 ---
 
 
-## FAQ
-
-- **How do I do *specifically* so and so?**
-    - No problem! Just do this.
-
----
-## License
-
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-- **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2015 © <a href="http://fvcproductions.com" target="_blank">FVCproductions</a>.
