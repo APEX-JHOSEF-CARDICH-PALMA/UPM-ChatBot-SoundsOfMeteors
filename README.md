@@ -216,12 +216,11 @@ se ve con dudas, puede volver a entrenar o a aprender.
 > Para clasificar el sistema se activa con cualquiera de los siguientes comandos
 
 ````
-- quiero entrenar
-- entrenar 
-- deseo practicar
-- entrenamiento
-- deseo entrenarme 
-- quiero practicar
+- clasificar
+- deseo clasificar
+- quiero clasificar
+- vamos a clasificar
+
 ````
 
 ### Ayuda para Clasificar 
