@@ -10,6 +10,9 @@
 - good morning
 - good evening
 - hey there
+- Como estas ?
+- Hay alguien ahi?
+
 
 
 
@@ -118,8 +121,6 @@
 ## intent:underdense_sample
 - recuerdame como suena un underdense
 - recuerdame como suena un meteoro tipo  underdense
-
-
 - como suena un meteoro underdense
 - como suena un meteoro tipo underdense 
 - Como suena un meteoro tipo underdense ?

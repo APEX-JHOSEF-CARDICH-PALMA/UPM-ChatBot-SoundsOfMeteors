@@ -264,7 +264,8 @@ Los siguientes paquetes de software son necesarios en el sistema para poder hace
 
 - [Python 3.7](https://www.python.org/)
 - [Rasa](https://rasa.com/)
-- [Django](https://www.djangoproject.com/)
+- [Django 3.0.7](https://www.djangoproject.com/)
+- Django Rest framework 3.11.0
 
 ## Team
 > Contributors/People
