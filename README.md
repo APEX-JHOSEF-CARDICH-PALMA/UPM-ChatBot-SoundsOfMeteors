@@ -23,7 +23,7 @@
  
 ## Introducción
 
--
+- El proyecto tiene como objetivo el diseño y desarrollo  de una arquitectura  para la implementación de una aplicación, que tiene la principal funcionalidad de la clasificación de sonidos del cielo mediante un juego orientado al publico infantil. 
 
 ---
  ## About
