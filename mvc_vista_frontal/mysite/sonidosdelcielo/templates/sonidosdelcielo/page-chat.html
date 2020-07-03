@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CHATBOT - SKYBOY</title>
+  <!-- bootstrap  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- ajax  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- style  -->
+  {% load static %}
+  <link href="{% static "sonidosdelcielo/styles/styles-home.css" %}" rel="stylesheet">
+  <link href="{% static "sonidosdelcielo/styles/logo.css" %}" rel="stylesheet">
+  <script src="{% static "sonidosdelcielo/scripts/chat.js" %}"></script>
+
+
+
+
+  </head>
+  <body>
+
+
+  <!------------------------------------------------------------------------>
+
+
+  <!------------------------------------------------------------------------>
+  <div id="back" >
+
+    <div class="container">
+    <div class="jumbotron"  >
+    <h1 class="display-8">Clasificador de Sonidos del Cielo</h1>
+
+  <div class="row" id="row-container-all">
+    <div class="col col-lg-1">
+    <!-------------- col 1----------------------------->
+    </div>
+
+    <div class="col col-lg-10" id="chat-col">
+    <!-------------- col 2----------------------------->
+    <div class="row">
+    <!-------------- ROW CHAT------------->
+  <div class="col" id="chat-container" align="center" >
+    <div id="cuadro-chat"> </div>
+
+
+    </div>
+    <script type="text/javascript">//
+    function clickEvent() {
+      var objDiv = document.getElementById("chat-container");
+      objDiv.scrollTop = objDiv.scrollHeight - objDiv.clientHeight;
+    };
+  </script>
+  </div>
+
+  <div class="row" id="input-box-container"  onmouseover="clickEvent();">
+    <!-------------- ROW INPUT------------->
+    <input id="texto-box"  class="form-control" type="text" placeholder="escribir texto"/>
+  </div>
+  <div class="row" id="boton-container">
+    <!-------------- ROW BOTON------------->
+    <button class="btn btn-primary btn-lg btn-block p-1 mb-1 bg-danger text-white" id="boton-chat"  onclick="clickEvent();"  onmouseover="clickEvent();" >Enviar</button>
+  </div>
+
+  </div>
+
+  <div class="col col-lg-1">
+    <!-------------- col 3----------------------------->
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </body>
+</html>
+

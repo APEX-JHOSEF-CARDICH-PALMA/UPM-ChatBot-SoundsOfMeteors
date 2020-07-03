@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'videoclub27.apps.Videoclub27Config',
+    'sonidosdelcielo.apps.SonidosdelcieloConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
