@@ -89,7 +89,8 @@ $ rasa run actions...
  ```
  ### Módulo Back - ChatBot
 
-
+El chatbot ya tiene un par de modelos entrenados y estables que se recomieda usarlos (obviar este paso en este caso). Sin embargo, si se quiere entrenar el asistente 
+por alguna modificación se realiza el siguiente paso:
 - Para entrenar nuestro modelo nos situamos en el siguiente directorio:
  ```
  "/UPM-ChatBot-SoundsOfMeteors/mvc_control_bot_juego"
@@ -98,6 +99,7 @@ $ rasa run actions...
  ```
  $ rasa train 
  ```
+Si se desea usar el modelo entrenado disponible (recomendado) obviar el paso anterior y seguir con este.
  - Una vez que nuestro rasa ha terminado de formar el universo de nuestro bot este se encuentra ya listo para poder usarlo. Entonces podemos conversar con el bot conectando un frontal web o la consola de comandos. La segunda opción es la mas inmediata. Para poder comunicarnos con nuestro bot via consola,  ejecutamos el siguiente comando en una terminal. Este inicia el servidor RASA y ademas nos da una terminal de entrada para poder comunicarnos via texto con nuestro bot: 
 > Para iniciar el servidor rasa donde correra nuestro bot:
   ```
