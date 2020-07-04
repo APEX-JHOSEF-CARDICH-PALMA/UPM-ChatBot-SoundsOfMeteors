@@ -1,6 +1,6 @@
 
 #  ChatBot para Clasificar Sonidos del Cielo
-> Sky Sounds Chatbot Classifier 
+>  Chatbot to classify sounds of the sky 
 
 ---
  ![Frontal APP](documentation/demo.png)
