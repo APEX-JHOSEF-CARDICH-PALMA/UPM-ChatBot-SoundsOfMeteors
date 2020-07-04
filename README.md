@@ -166,7 +166,11 @@ Por la arquitectura propuesta, se ha desarrollado una aplicación frontal  basad
 $ python3 manage.py runserver 0.0.0.0:8000
 
 ```
+- El frontal será accesible desde la siguiente dirección local:
+```shell
+http://localhost:8000/sonidosdelcielo/chatbot
 
+```
 
 ***Vista Previa Frontal***
 - V1.5
