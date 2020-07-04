@@ -1,0 +1,56 @@
+.
+├── README.md
+├── README.pdf
+├── documentation
+│   ├── 000_conf.jpeg
+│   ├── 001_conf.png
+│   ├── 002_conf.png
+│   ├── 003\ TFG\ Entrega\ Memoria\ Final.DOCX
+│   ├── 003\ TFG\ Entrega\ Memoria\ Final.pdf
+│   ├── 003_conf.png
+│   ├── 005_conf.png
+│   ├── architecture.png
+│   ├── cat.gif
+│   ├── code_doc.html
+│   ├── demo.png
+│   ├── filesystem-proy.txt
+│   ├── presentacion_tfg_JhosefCardichPalma.pptx
+│   └── ~$3\ TFG\ Entrega\ Memoria\ Final.DOCX
+├── filesystem-proy.txt
+├── models
+├── mvc_control_bot_juego
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-37.pyc
+│   │   └── actions.cpython-37.pyc
+│   ├── actions.py
+│   ├── config.yml
+│   ├── credentials.yml
+│   ├── data
+│   │   ├── nlu.md
+│   │   └── stories.md
+│   ├── domain.yml
+│   ├── endpoints.yml
+│   ├── models
+│   │   ├── 20200630-155437.tar.gz
+│   │   └── 20200701-174950.tar.gz
+│   ├── sounds
+│   │   ├── classify_sounds
+│   │   ├── sonidos_asistente
+│   │   └── sonidos_entrenamiento
+│   ├── tests
+│   │   └── conversation_tests.md
+│   └── venv
+│       ├── bin
+│       ├── lib
+│       └── pyvenv.cfg
+└── mvc_vista_frontal
+    ├── mysite
+    │   ├── db.sqlite3
+    │   ├── manage.py
+    │   ├── mysite
+    │   ├── sonidos
+    │   └── sonidosdelcielo
+    └── requirements.txt
+
+19 directories, 34 files
