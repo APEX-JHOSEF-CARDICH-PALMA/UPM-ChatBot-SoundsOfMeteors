@@ -82,8 +82,12 @@ $ pip3 install rasa
 
   Otra parte escencial del proyecto es la lógica del juego, para ello se ha desarrollado una aplicación en Phyton, integrada en framework de RASA, la cuál define las funcionalidad de acceso a los sonidos, la clasificación, almacenamiento de los datos de clasificación, y otros procesamientos independientes de la parte conversacional que es el bot. Estos servicios serán usados por el bot cuando este reconozca un comando por parte del usuario.
 
-- Para iniciar los servicios solo tenemos que situarnos en el directorio anterior y ejcutar el siguiente comando:
+- Para iniciar los servicios solo tenemos que situarnos en el directorio :
+ ```
+ "/UPM-ChatBot-SoundsOfMeteors/mvc_control_bot_juego"
+ ```
 
+- y ejecutar el siguiente comando:
  ```
 $ rasa run actions...
  ```
